@@ -17,6 +17,8 @@ process.on('uncaughtException', function (exception) {
   console.log(exception);
 });
 
+let categoryDictionary = [];
+
 app.post('/get_search', async function (req, res) {
   const url = req.body.searchurl;
  

@@ -1,25 +1,12 @@
-let desiredInput = "";
+let categoryDictionary = [];
 
-class inputParsing {
-  constructor (user_input, input_type) {
-    this.user_input = user_input;
-    this.input_type = input_type;
+class category_sorting {
+  constructor (specific_word, associations) {
+    this.specific_word = specific_word;
+    this.associations = associations;
   }
 
-  searchEngine () {
-    let searchEngineSpaceReplace = this.user_input.replace(" ", "%20");
+  learnWord () {
 
-    fetch ("/get_search", {
-      method : "POST",
-      headers : {
-        "Content-Type" : "application/json"
-      },
-      body : JSON.stringify({
-        url : "https://www.google.com/search?q=" + searchEngineSpaceReplace
-      })
-    })
-    .then(response => response.text())
-    .then(data => {})
-    .catch()
   }
 }
