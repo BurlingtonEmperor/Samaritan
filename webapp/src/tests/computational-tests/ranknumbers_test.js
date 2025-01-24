@@ -20,4 +20,4 @@ function rankNumbers (numArray) {
 }
 
 rankNumbers([3, 5, 6, 7, 7, 8, 10]);
-alert(rankingArray);
+alert(rankNumbers([3, 5, 6, 7, 8, 9, 10]));
