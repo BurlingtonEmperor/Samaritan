@@ -86,7 +86,10 @@ class category_sorting {
           }
 
           if (sharedWords > 1) {
-            contigencyWords.append((this.specific_word + "," + targetArray[0]).split(","));
+            let contigencyNew = [];
+            
+            contigencyNew.push(this.specific_word, targetArray[0]);
+            contigencyWords.push(contigencyNew);
           }
         }
         return "added word";
