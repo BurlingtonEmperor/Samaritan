@@ -97,6 +97,18 @@ class category_sorting {
   }
 }
 
+function findLargestNumber (numArray) {
+  let largestNum = numArray[0];
+
+  for (let i = 0; i < numArray.length; i++) {
+    if (largestNum < numArray[i]) {
+      largestNum = numArray[i];
+    }
+  }
+
+  return largestNum;
+}
+
 function suggestWords (user_use_countArray) {
   let countingArray = user_use_countArray;
   let mostUsedWord_count = countingArray[0][1];
