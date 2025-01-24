@@ -64,7 +64,7 @@ class category_sorting {
     let parsedPreparation = preparedForDictionary.split("//.)-=");
 
     parsedPreparation[1] =  associationsArray;
-    categoryDictionary.append(parsedPreparation);
+    categoryDictionary.push(parsedPreparation);
 
     switch (defaultToContigencies) {
       default:
@@ -87,7 +87,7 @@ class category_sorting {
 
           if (sharedWords > 1) {
             let contigencyNew = [];
-            
+
             contigencyNew.push(this.specific_word, targetArray[0]);
             contigencyWords.push(contigencyNew);
           }
