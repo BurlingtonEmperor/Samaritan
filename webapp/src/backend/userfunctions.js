@@ -1,4 +1,5 @@
 let desiredInput = "";
+let defaultToContigencies = 0;
 
 class inputParsing {
   constructor (user_input, input_type) {
