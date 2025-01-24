@@ -2,6 +2,16 @@ let categoryDictionary = [];
 let contigencyWords = [];
 let userWordHistory = [];
 
+function returnRandomNumber (maxNum, condition) {
+  let isOne = 0;
+  
+  if (condition == true) {
+    isOne = 1;
+  }
+
+  return (Math.floor(Math.random() * maxNum) + isOne);
+}
+
 class category_sorting {
   constructor (specific_word, associations) {
     this.specific_word = specific_word;
