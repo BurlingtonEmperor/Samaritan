@@ -99,14 +99,39 @@ class category_sorting {
 
 function findLargestNumber (numArray) {
   let largestNum = numArray[0];
+  let largPos = 0;
 
   for (let i = 0; i < numArray.length; i++) {
     if (largestNum < numArray[i]) {
       largestNum = numArray[i];
+      largPos = i;
     }
   }
+  
+  let subjectArray = [];
+  subjectArray.push(largestNum, largPos);
+  return subjectArray;
+}
 
-  return largestNum;
+function rankNumbers (numArray) {
+  let easyNumArray = numArray;
+  let rankingArray = [];
+
+  if (easyNumArray.length < 2) {
+    return "too little data";
+  }
+
+  for (let i = 0; i < easyNumArray.length; i++) {
+    let x = findLargestNumber(easyNumArray);
+
+    let swapStoreNum = easyNumArray[easyNumArray.length - 1];
+    easyNumArray[easyNumArray.length - 1] = x[0];
+    easyNumArray[x[1]] = swapStoreNum;
+    rankingArray.push(x[0]);
+    easyNumArray.pop();
+  }
+
+  return rankingArray;
 }
 
 function suggestWords (user_use_countArray) {
