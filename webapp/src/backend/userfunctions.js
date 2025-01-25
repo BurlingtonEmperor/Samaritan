@@ -2,9 +2,8 @@ let desiredInput = "";
 let defaultToContigencies = 0;
 
 class inputParsing {
-  constructor (user_input, input_type) {
+  constructor (user_input) {
     this.user_input = user_input;
-    this.input_type = input_type;
   }
 
   searchEngine () {
