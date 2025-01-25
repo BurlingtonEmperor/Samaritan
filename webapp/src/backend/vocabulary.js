@@ -1,10 +1,3 @@
-let actionWords = ["find", "upload", "unplug"];
-let articleWords = ["the", "a", "an"];
-let adjectiveWords = ["new", "old", "damaged"];
-let subjectWords = ["battery", "wheel", "processor"];
-
-let vowelList = ["a", "e", "i", "o", "u"];
-
 function grammarCheckArticle (articleWord, nextWord) {
   switch (articleWord) {
     case "an":
