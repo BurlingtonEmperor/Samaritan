@@ -39,6 +39,18 @@ app.post('/get_search', async function (req, res) {
   });
 });
 
+app.post('/get_text', async function (req, res) {
+  const url = req.body.url;
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  await page.goto(url);
+  const bodyText = await page.$eval('*', el => el.innerText);
+
+  res.send(bodyText);
+});
+
 http.listen(port, function() {
   console.log('listening on *:' + port);
 });
