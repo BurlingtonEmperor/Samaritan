@@ -40,17 +40,19 @@ app.post('/get_search', async function (req, res) {
 });
 
 app.post('/get_text', async function (req, res) {
-  const url = req.body.url;
+  // const url = req.body.url;
 
-  const browser = await puppeteer.launch({
-    executablePath : "/home/runner/.cache/puppeteer/chrome/linux-132.0.6834.110/chrome-linux64/chrome"
-  });
-  const page = await browser.newPage();
+  // const browser = await puppeteer.launch({
+  //   executablePath : "/home/runner/.cache/puppeteer/chrome/linux-132.0.6834.110/chrome-linux64/chrome"
+  // });
+  // const page = await browser.newPage();
 
-  await page.goto(url);
-  const bodyText = await page.$eval('*', el => el.innerText);
+  // await page.goto(url);
+  // const bodyText = await page.$eval('*', el => el.innerText);
 
-  res.send(bodyText);
+  // res.send(bodyText);
+
+  res.send("unavailable");
 });
 
 http.listen(port, function() {
