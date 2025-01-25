@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const request = require('request');
 const rp = require('request-promise');
+const puppeteer = require('puppeteer');
 
 process.on('uncaughtException', function (exception) {
   console.log(exception);
