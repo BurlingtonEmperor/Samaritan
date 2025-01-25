@@ -48,7 +48,7 @@ class category_sorting {
   }
 
   assignData () {
-    let associationsArray = this.associations.split(",");
+    let associationsArray = JSON.parse(this.associations);
 
     if (associationsArray == "" || associationsArray == null || associationsArray == undefined || String(associationsArray).includes("//.)-=")) {
       return "abort";

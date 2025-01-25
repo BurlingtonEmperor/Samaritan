@@ -25,7 +25,7 @@ class inputParsing {
       const all_array = [];
       let turn = 0;
 
-      // word_problems_answers.innerHTML = "";
+      let finalResultArray = [];
 
       for (i = 0; i < data_array.length; i++) {
         if (data_array[i].includes("https://")) {
@@ -43,11 +43,16 @@ class inputParsing {
       }
 
       for (i = 0; i < all_array.length; i++) {
-        // word_problems_answers.innerHTML = word_problems_answers.innerHTML + "<p class='glow-augment small-text'><a href='https://google.com" + all_array[i] + "' target='_blank'>" + all_array[i] + "</a></p>";
+        let searchResultArray = [];
+
+        searchResultArray.push("https://google.com" + all_array[i], all_array[i]);
+        finalResultArray.push(searchResultArray);
       }
+
+      return finalResultArray;
     })
     .catch(error => {
-
+    
     });
   }
 }
