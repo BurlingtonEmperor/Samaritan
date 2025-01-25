@@ -8,6 +8,25 @@ class inputParsing {
     this.user_input = user_input;
   }
 
+  getText () {
+    fetch ("/get_text", {
+      method : "POST",
+      headers : {
+        "Content-Type" : "application/json"
+      },
+      body : JSON.stringify({
+        url : this.user_input
+      })
+    })
+    .then(response => response.text())
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      return "samaritan-error: " + error;
+    })
+  }
+
   searchEngine () {
     let searchEngineSpaceReplace = this.user_input.replace(" ", "%20");
 
