@@ -52,7 +52,7 @@ class inputParsing {
       return finalResultArray;
     })
     .catch(error => {
-    
+      return "samaritan-error: " + error;
     });
   }
 }
