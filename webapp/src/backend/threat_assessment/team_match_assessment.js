@@ -22,16 +22,13 @@ class teamMatchAssessment {
       redAllianceThreatLevel += individualRedAllianceTeam.assessThreat();
     }
 
-    if (blueAllianceThreatLevel > redAllianceThreatLevel) {
-      return "blue likely";
-    }
-
-    else if (blueAllianceThreatLevel < redAllianceThreatLevel) {
-      return "red likely";
-    }
-
-    else {
-      return "outcome unknown";
+    switch (true) {
+      case (blueAllianceThreatLevel > redAllianceThreatLevel):
+        return "blue likely";
+      case (blueAllianceThreatLevel < redAllianceThreatLevel):
+        return "red likely";
+      default:
+        return "outcome unknown";
     }
   }
 }
