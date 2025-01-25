@@ -17,6 +17,21 @@ function checkMemoryUnits (memoryUnit) {
   return "memory";
 }
 
+function commitToMemory (memoryUnit, overWrite, newUnit) {
+  switch (overWrite) {
+    default:
+      return "abort";
+    case 0:
+      let oldArrayToAppend = JSON.parse(localStorage.getItem(memoryUnit + "-Samaritan"));
+      oldArrayToAppend.push(newUnit);
+      localStorage.setItem(memoryUnit + "-Samaritan", oldArrayToAppend);
+      break;
+    case 1:
+      localStorage.setItem(memoryUnit + "-Samaritan", newUnit);
+      break;
+  }
+}
+
 for (let i = 0; i < memoryUnitNameArray.length; i++) {
   switch (checkMemoryUnits(localStorage.getItem(memoryUnitNameArray[i] + "-Samaritan"))) {
     case "no memory":

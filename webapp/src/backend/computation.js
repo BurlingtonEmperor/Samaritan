@@ -20,7 +20,7 @@ class category_sorting {
 
   dictionaryDuplicateCheck () {
     for (let i = 0; i < categoryDictionary.length; i++) {
-      let loweredDictionaryWord = categoryDictionary[i].toLowerCase();
+      let loweredDictionaryWord = categoryDictionary[i][0].toLowerCase();
       let loweredUserWord = this.specific_word.toLowerCase();
 
       if (loweredDictionaryWord == loweredUserWord) {
@@ -29,6 +29,17 @@ class category_sorting {
 
       else {
         return 0;
+      }
+    }
+  }
+
+  returnDuplicateDictionaryNum () {
+    for (let i = 0; i < categoryDictionary.length; i++) {
+      let loweredDictionaryWord = categoryDictionary[i][0].toLowerCase();
+      let loweredUserWord = this.specific_word.toLowerCase();
+
+      if (loweredDictionaryWord == loweredUserWord) {
+        return i;
       }
     }
   }
@@ -46,7 +57,8 @@ class category_sorting {
         return "duplicate word";
     }
   }
-
+  
+  // add a new word and its associations
   assignData () {
     let associationsArray = JSON.parse(this.associations);
 
@@ -73,7 +85,7 @@ class category_sorting {
     let preparedForDictionary = this.specific_word + "//.)-=" + "][]-=+"
     let parsedPreparation = preparedForDictionary.split("//.)-=");
 
-    parsedPreparation[1] =  associationsArray;
+    parsedPreparation[1] = associationsArray;
     categoryDictionary.push(parsedPreparation);
 
     switch (defaultToContigencies) {
@@ -103,6 +115,18 @@ class category_sorting {
           }
         }
         return "added word";
+    }
+  }
+
+  learnNewAssociations () {
+    let lookForWord = category_sorting.dictionaryDuplicateCheck();
+
+    switch (lookForWord) {
+      case 0:
+        return "abort";
+      case 1:
+        categoryDictionary[category_sorting.returnDuplicateDictionaryNum()][1] = categoryDictionary[category_sorting.returnDuplicateDictionaryNum()][1].concat(this.associations);
+        break;
     }
   }
 }
