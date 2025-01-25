@@ -11,9 +11,11 @@
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "cheerio": "^1.0.0",
     "express": "^4.21.2",
     "puppeteer": "^24.1.1",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "unirest": "^0.6.0"
   }
 }

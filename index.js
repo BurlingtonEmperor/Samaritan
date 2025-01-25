@@ -18,6 +18,28 @@ process.on('uncaughtException', function (exception) {
   console.log(exception);
 });
 
+const cheerio = require("cheerio");
+// const unirest = require("unirest");
+
+// const url = "https://frc-events.firstinspires.org/2024/team/2876";
+// const ua =
+//   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36";
+
+// function cheerioTest () {
+//   fetch(url, {
+//     headers: {
+//       "User-Agent": ua,
+//     },
+//   })
+//     .then(res => res.text())
+//     .then(html => {
+//       const $ = cheerio.load(html);
+//       let body = $("body").text();
+
+//       console.log(body);
+//     });
+// }
+
 let categoryDictionary = [];
 
 app.get('', function (req, res) {
@@ -56,5 +78,6 @@ app.post('/get_text', async function (req, res) {
 });
 
 http.listen(port, function() {
+  // cheerioTest();
   console.log('listening on *:' + port);
 });
