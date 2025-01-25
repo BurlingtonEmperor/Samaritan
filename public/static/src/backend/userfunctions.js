@@ -1,6 +1,8 @@
 let desiredInput = "";
 let defaultToContigencies = 0;
 
+let searchEngineOutput = "";
+
 class inputParsing {
   constructor (user_input) {
     this.user_input = user_input;
@@ -48,7 +50,7 @@ class inputParsing {
         finalResultArray.push(searchResultArray);
       }
 
-      return finalResultArray;
+      searchEngineOutput = finalResultArray;
     })
     .catch(error => {
       return "samaritan-error: " + error;
