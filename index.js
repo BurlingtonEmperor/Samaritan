@@ -26,7 +26,8 @@ app.get('', function (req, res) {
 });
 
 app.post('/get_search', async function (req, res) {
-  const url = req.body.searchurl;
+  console.log("gotresult");
+  const url = req.body.url;
  
   rp(url)
   .then(function (html) {

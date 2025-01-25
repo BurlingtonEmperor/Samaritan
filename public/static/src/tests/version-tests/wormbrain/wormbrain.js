@@ -4,27 +4,23 @@ while (true) {
   switch (commandPrompt.toLowerCase()) {
     case "seekteam":
       let teamToSeek = prompt("Team number: ");
-      switch (checkIfTeamExists(teamToSeek)) {
-        case "exists":
-          teamToSeek = new inputParsing(teamToSeek);
-          let seekingArray = teamToSeek.searchEngine();
-          
-          switch (true) {
-            case (String(seekingArray).includes("samaritan-error:")):
-              alert(seekingArray);
-              break;
-            default:
-              let filteredSearch = searchEngineFilter(seekingArray);
-              let searchResources = new teamResourceAssessment(filteredSearch);
+      teamToSeek = new inputParsing(teamToSeek);
+      setTimeout(function () {
+        let seekingArray = teamToSeek.searchEngine();
+        console.log(seekingArray);
 
-              alert("Threat level (lowest 1, highest 3): " + searchResources.assessThreat());
-              break;
-          }
-          break;
-        case "non-existant":
-          alert("team " + String(teamToSeek) + " doesn't exist");
-          break;
-      }
+        switch (true) {
+          case (String(seekingArray).includes("samaritan-error:")):
+            alert(seekingArray);
+            break;
+          default:
+            let filteredSearch = searchEngineFilter(seekingArray);
+            let searchResources = new teamResourceAssessment(filteredSearch);
+
+            alert("Threat level (lowest 1, highest 3): " + searchResources.assessThreat());
+            break;
+        }
+      }, 100);
       break;
     case "setmatch":
       let blueAlliancePrompt = prompt("Enter blue alliance team numbers (seperate by comma): ");

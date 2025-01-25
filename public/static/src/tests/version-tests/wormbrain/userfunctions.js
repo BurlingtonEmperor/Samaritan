@@ -7,6 +7,7 @@ class inputParsing {
   }
 
   searchEngine () {
+    console.log(this.user_input);
     let searchEngineSpaceReplace = this.user_input.replace(" ", "%20");
 
     fetch ("/get_search", {
@@ -20,6 +21,8 @@ class inputParsing {
     })
     .then(response => response.text())
     .then(data => {
+      console.log(data);
+      
       const data_array = data.split("<a href=");
       const all_array = [];
       let turn = 0;
@@ -47,8 +50,11 @@ class inputParsing {
         searchResultArray.push("https://google.com" + all_array[i], all_array[i]);
         finalResultArray.push(searchResultArray);
       }
-
-      return finalResultArray;
+      
+      setTimeout(function () {
+        console.log(finalResultArray);
+        return finalResultArray;
+      }, 100);
     })
     .catch(error => {
       return "samaritan-error: " + error;
