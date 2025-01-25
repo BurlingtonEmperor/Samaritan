@@ -70,7 +70,9 @@ class teamResourceAssessment {
         teamThreatLevel++;
         break;
     }
-
-    return teamThreatLevel;
+    
+    let threatLevelToReturn = teamThreatLevel;
+    teamThreatLevel = 1;
+    return threatLevelToReturn;
   }
 }
