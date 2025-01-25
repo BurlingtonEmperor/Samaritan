@@ -19,6 +19,12 @@ process.on('uncaughtException', function (exception) {
 
 let categoryDictionary = [];
 
+app.get('', function (req, res) {
+  const index = __dirname + '/public/static/index.html';
+
+  res.sendFile(index);
+});
+
 app.post('/get_search', async function (req, res) {
   const url = req.body.searchurl;
  
