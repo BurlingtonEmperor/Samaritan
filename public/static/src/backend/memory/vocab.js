@@ -1,5 +1,3 @@
-const memoryUnitNameArray = ["newActionWordsMemory", "newArticleWordsMemory", "newAdjectiveWordsMemory", "newSubjectWordsMemory"];
-
 // Default (using no memory)
 let actionWords = ["find", "upload", "unplug"];
 let articleWords = ["the", "a", "an"];
