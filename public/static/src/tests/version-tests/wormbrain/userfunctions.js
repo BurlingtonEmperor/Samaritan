@@ -1,6 +1,8 @@
 let desiredInput = "";
 let defaultToContigencies = 0;
 
+let searchEngineOutput = "";
+
 class inputParsing {
   constructor (user_input) {
     this.user_input = user_input;
@@ -51,10 +53,7 @@ class inputParsing {
         finalResultArray.push(searchResultArray);
       }
       
-      setTimeout(function () {
-        console.log(finalResultArray);
-        return finalResultArray;
-      }, 100);
+      searchEngineOutput = finalResultArray;
     })
     .catch(error => {
       return "samaritan-error: " + error;
