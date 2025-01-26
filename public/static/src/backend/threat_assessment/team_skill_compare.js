@@ -86,6 +86,18 @@ class teamSkillCompare {
 
       await teamSkillAssessment(allianceTwo[blueAllianceCounter]); 
     }
+
+    async function tryBlue () {
+      for (let i = 0; i < allianceRunOne; i++) {
+        await blueAllianceLoop();
+      }
+    }
+
+    async function tryRed () {
+      for (let i = 0; i < allianceRunTwo; i++) {
+        await redAllianceLoop();
+      }
+    }
     // if (blueAlliancePoints < redAlliancePoints) {
     //   skillMatchResult = "red likely";
     // }
@@ -98,8 +110,8 @@ class teamSkillCompare {
     //   skillMatchResult = "outcome unknown";
     // }
     
-    await blueAllianceLoop();
-    await redAllianceLoop();
+    await tryBlue();
+    await tryRed();
     return "success";
   }
 }
