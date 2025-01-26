@@ -6,7 +6,7 @@ class teamSkillCompare {
     this.redAlliance = redAlliance;
   }
 
-  runMatch () {
+  async runMatch () {
     let blueAlliancePoints = 0;
     let redAlliancePoints = 0;
 
