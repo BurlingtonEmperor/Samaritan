@@ -4,7 +4,7 @@ let ultimateResult = "";
 const dummyParser = document.createElement("html");
 dummyParser.style.display = "none";
 
-class teamSkillAssessment () {
+class teamSkillAssessment {
   constructor (teamNumber) {
     this.teamNumber = teamNumber;
   }
