@@ -9,6 +9,8 @@ class teamSkillCompare {
   }
 
   async runMatch () {
+    redStorage = [];
+    
     let blueAlliancePoints = 0;
     let redAlliancePoints = 0;
 
@@ -53,6 +55,7 @@ class teamSkillCompare {
 
       const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
         set (target, prop, val) {
+          console.log("Parsed Int Val (blue): " + parseInt(val), " natural: " + val);
           blueAlliancePoints += parseInt(val);    
           console.log("Blue alliance points: " + blueAlliancePoints + ", run:" + blueAllianceCounter);
           finalBlueAlliancePoints = blueAlliancePoints;
@@ -63,7 +66,8 @@ class teamSkillCompare {
         }
       });
   
-      ultimateResultForComparison.result = await teamSkillAssessment(allianceOne[blueAllianceCounter]); 
+      await teamSkillAssessment(allianceOne[blueAllianceCounter], 1); 
+      ultimateResultForComparison.result = ultimateResult.result;
     }
 
     async function redAllianceLoop (redAllianceCounter) {
@@ -80,7 +84,8 @@ class teamSkillCompare {
         }
       });
       
-      ultimateResultForComparison.result = await teamSkillAssessment(allianceTwo[redAllianceCounter]); 
+      await teamSkillAssessment(allianceTwo[redAllianceCounter], 1); 
+      ultimateResultForComparison.result = ultimateResult.result;
     }
 
     async function tryBlue () {

@@ -1,7 +1,11 @@
 let htmlData = "";
+let populatedComparisonLigand = 0;
+let redStorage = [];
+
 const ultimateResult = new Proxy({ result : 0 }, { 
   set (target, prop, val) {
     console.log(`ultimateResult.result changed from ${target[prop]} to ${val} (skillAssessment)`);
+    populatedComparisonLigand = 1;
     target[prop] = val;
   }
 });
@@ -10,7 +14,7 @@ const ultimateResult = new Proxy({ result : 0 }, {
 const dummyParser = document.createElement("html");
 dummyParser.style.display = "none";
 
-async function teamSkillAssessment (teamNumber) {
+async function teamSkillAssessment (teamNumber, yesStore) {
   fetch ("/get_source", {
     method : "POST",
     headers : {
@@ -29,6 +33,12 @@ async function teamSkillAssessment (teamNumber) {
     let awardNum = dummyParserSkillFinder[8].innerText.replace(" ", "");
       
     ultimateResult.result = parseInt(awardNum);
+
+    switch (yesStore) {
+      case 1:
+        redStorage.push(ultimateResult.result);
+        break;
+    }
     return ultimateResult.result;
   })
   .catch(error => {
