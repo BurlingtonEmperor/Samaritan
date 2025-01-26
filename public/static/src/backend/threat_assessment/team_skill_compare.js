@@ -61,7 +61,7 @@ class teamSkillCompare {
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           blueAlliancePoints += val;    
           blueAllianceCounter++;
-          finalBlueAlliancePoints = blueAllianceCounter;
+          finalBlueAlliancePoints = blueAlliancePoints;
           target[prop] = val;
           blueAllianceLoop();
         }
@@ -83,7 +83,7 @@ class teamSkillCompare {
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           redAlliancePoints += val;    
           redAllianceCounter++;
-          finalRedAlliancePoints = redAllianceCounter;
+          finalRedAlliancePoints = redAlliancePoints;
           target[prop] = val;
           redAllianceLoop();
         }
