@@ -30,6 +30,7 @@ class teamSkillCompare {
             skillMatchResult = "outcome unknown";
             break;
         }
+        return true;
       }
     });
 
