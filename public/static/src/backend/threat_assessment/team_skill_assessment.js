@@ -1,5 +1,11 @@
 let htmlData = "";
-let ultimateResult = "";
+const ultimateResult = new Proxy({ result : 0 }, { 
+  set (target, prop, val) {
+    console.log(`ultimateResult.result changed from ${target[prop]} to ${val}`);
+    target[prop] = val;
+  }
+});
+
 
 const dummyParser = document.createElement("html");
 dummyParser.style.display = "none";
@@ -22,8 +28,8 @@ async function teamSkillAssessment (teamNumber) {
     const dummyParserSkillFinder = dummyParser.querySelectorAll(".text-end");
     let awardNum = dummyParserSkillFinder[8].innerText.replace(" ", "");
       
-    ultimateResult = parseInt(awardNum);
-    return ultimateResult;
+    ultimateResult.result = parseInt(awardNum);
+    return ultimateResult.result;
   })
   .catch(error => {
     return error;
