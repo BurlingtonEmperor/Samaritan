@@ -9,33 +9,45 @@ class teamSkillCompare {
   async runMatch () {
     let blueAlliancePoints = 0;
     let redAlliancePoints = 0;
-    
-    let diceRoll = 0;
 
-    for (let i = 0; i < (this.blueAlliance.length * 2); i++) {
-      switch (diceRoll) {
-        case 0:
-          await teamSkillAssessment(this.blueAlliance[i]);
-          console.log(ultimateResult);
-          blueAlliancePoints += ultimateResult;
-          break;
-        case 1:
-          break;
-      }
+    // for (let i = 0; i < (this.blueAlliance.length * 2); i++) {
+    //   switch (diceRoll) {
+    //     case 0:
+    //       await teamSkillAssessment(this.blueAlliance[i]);
+    //       console.log(ultimateResult);
+    //       blueAlliancePoints += ultimateResult;
+    //       break;
+    //     case 1:
+    //       break;
+    //   }
+    // }
+
+    let blueAllianceCounter = 0;
+    while (blueAllianceCounter !== this.blueAlliance.length) {
+      const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
+        set (target, prop, val) {
+          console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
+          blueAlliancePoints += ${val};    
+          blueAllianceCounter++;
+          target[prop] = val;
+        }
+      });
+
+      await teamSkillAssessment(this.blueAlliance[i]);
     }
 
-    diceRoll = 0;
+    let redAllianceCounter = 0;
+    while (redAllianceCounter !== this.redAlliance.length) {
+      const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
+        set (target, prop, val) {
+          console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
+          redAlliancePoints += ${val};    
+          redAllianceCounter++;
+          target[prop] = val;
+        }
+      });
 
-    for (let i = 0; i < (this.redAlliance.length * 2); i++) {
-      switch (diceRoll) {
-        case 0:
-          await teamSkillAssessment(this.redAlliance[i]);
-          console.log(ultimateResult);
-          redAlliancePoints += ultimateResult;
-          break;
-        case 1:
-          break;
-      }
+      await teamSkillAssessment(this.redAlliance[i]);
     }
 
     switch (true) {
