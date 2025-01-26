@@ -11,8 +11,7 @@ class teamSkillCompare {
     let redAlliancePoints = 0;
 
     for (let i = 0; i < this.blueAlliance.length; i++) {
-      let specificAllianceTeam = new teamSkillAssessment(this.blueAlliance[i]);
-      specificAllianceTeam.assessThreat();
+      teamSkillAssessment(this.blueAlliance[i]);
       setTimeout(function () {
         console.log(ultimateResult);
         blueAlliancePoints += ultimateResult;
@@ -20,7 +19,7 @@ class teamSkillCompare {
     }
 
     for (let i = 0; i < this.redAlliance.length; i++) {
-      let specificAllianceTeam = new teamSkillAssessment(this.redAlliance[i]);
+      teamSkillAssessment(this.redAlliance[i]);
       specificAllianceTeam.assessThreat();
       setTimeout(function () {
         console.log(ultimateResult);
@@ -28,29 +27,29 @@ class teamSkillCompare {
       }, 10);
     }
 
-    // switch (true) {
-    //   case (blueAlliancePoints < redAlliancePoints):
-    //     skillMatchResult = "red likely";
-    //     break;
-    //   case (blueAlliancePoints > redAlliancePoints):
-    //     skillMatchResult = "blue likely";
-    //     break;
-    //   default:
-    //     skillMatchResult = "outcome unknown";
-    //     break;
+    switch (true) {
+      case (blueAlliancePoints < redAlliancePoints):
+        skillMatchResult = "red likely";
+        break;
+      case (blueAlliancePoints > redAlliancePoints):
+        skillMatchResult = "blue likely";
+        break;
+      default:
+        skillMatchResult = "outcome unknown";
+        break;
+    }
+
+    // if (blueAlliancePoints < redAlliancePoints) {
+    //   skillMatchResult = "red likely";
     // }
 
-    if (blueAlliancePoints < redAlliancePoints) {
-      skillMatchResult = "red likely";
-    }
+    // else if (blueAlliancePoints > redAlliancePoints) {
+    //   skillMatchResult = "blue likely";
+    // }
 
-    else if (blueAlliancePoints > redAlliancePoints) {
-      skillMatchResult = "blue likely";
-    }
-
-    else {
-      skillMatchResult = "outcome unknown";
-    }
+    // else {
+    //   skillMatchResult = "outcome unknown";
+    // }
     
     return "success";
   }
