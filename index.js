@@ -73,7 +73,7 @@ app.post('/get_source', async function (req, res) {
   .then(html => {
     const $ = cheerio.load(html);
     
-    res.send($);
+    res.send($.html);
   });
 });
 
