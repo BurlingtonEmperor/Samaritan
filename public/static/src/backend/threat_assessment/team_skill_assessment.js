@@ -25,10 +25,10 @@ class teamSkillAssessment {
 
       dummyParser.innerHTML = htmlData;
       const dummyParserSkillFinder = dummyParser.querySelectorAll(".text-end");
-      const awardNum = dummyParserSkillFinder[8];
+      let awardNum = dummyParserSkillFinder[8].innerText.replace(" ", "");
       
-      ultimateResult = awardNum;
-      return awardNum;
+      ultimateResult = parseInt(awardNum);
+      return "success";
     })
     .catch(error => {
       return error;
