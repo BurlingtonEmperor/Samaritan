@@ -62,6 +62,7 @@ class teamSkillCompare {
           blueAlliancePoints += val;    
           blueAllianceCounter++;
           finalBlueAlliancePoints = blueAlliancePoints;
+          console.log(blueAlliancePoints);
           target[prop] = val;
           blueAllianceLoop();
         }
