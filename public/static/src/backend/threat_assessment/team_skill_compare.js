@@ -59,7 +59,7 @@ class teamSkillCompare {
           blueAlliancePoints += val;    
           blueAllianceCounter++;
           target[prop] = val;
-          await blueAllianceLoop();
+          blueAllianceLoop();
         }
       });
 
