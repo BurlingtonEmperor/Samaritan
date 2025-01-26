@@ -22,16 +22,28 @@ class teamSkillCompare {
       redAlliancePoints += ultimateResult;
     }
 
-    switch (true) {
-      case (blueAlliancePoints < redAlliancePoints):
-        skillMatchResult = "red likely";
-        break;
-      case (blueAlliancePoints > redAlliancePoints):
-        skillMatchResult = "blue likely";
-        break;
-      default:
-        skillMatchResult = "outcome unknown";
-        break;
+    // switch (true) {
+    //   case (blueAlliancePoints < redAlliancePoints):
+    //     skillMatchResult = "red likely";
+    //     break;
+    //   case (blueAlliancePoints > redAlliancePoints):
+    //     skillMatchResult = "blue likely";
+    //     break;
+    //   default:
+    //     skillMatchResult = "outcome unknown";
+    //     break;
+    // }
+
+    if (blueAlliancePoints < redAlliancePoints) {
+      skillMatchResult = "red likely";
+    }
+
+    else if (blueAlliancePoints > redAlliancePoints) {
+      skillMatchResult = "blue likely";
+    }
+
+    else {
+      skillMatchResult = "outcome unknown";
     }
     
     return "success";
