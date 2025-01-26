@@ -93,7 +93,8 @@ class teamSkillCompare {
           return true;
         }
       });
-
+      
+      finalRedAlliancePoints += ultimateResultForComparison.result;
       await teamSkillAssessment(allianceTwo[blueAllianceCounter]); 
     }
 
@@ -101,6 +102,7 @@ class teamSkillCompare {
       for (let i = 0; i < allianceRunOne; i++) {
         await blueAllianceLoop();
       }
+
     }
 
     async function tryRed () {
