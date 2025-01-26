@@ -19,5 +19,5 @@ function checkIfTeamExists (teamNum) {
   })
   .catch(error => {
     return error;
-  })
+  });
 }
