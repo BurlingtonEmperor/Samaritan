@@ -18,6 +18,7 @@ class teamSkillCompare {
 
     let skillMatchResultManifest = new Proxy({ result : 0 }, {
       set (target, prop, val) {
+        console.log("skill match return");
         switch (true) {
           case (blueAlliancePoints < redAlliancePoints):
             skillMatchResult = "red likely";
