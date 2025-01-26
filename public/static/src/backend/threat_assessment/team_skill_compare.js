@@ -90,6 +90,7 @@ class teamSkillCompare {
           finalRedAlliancePoints = redAlliancePoints;
           target[prop] = val;
           redAllianceLoop();
+          return true;
         }
       });
 
