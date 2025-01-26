@@ -49,7 +49,7 @@ class teamSkillCompare {
     // }
 
     async function blueAllianceLoop (blueAllianceCounter) {
-      console.log("ran");
+      console.log("ran blue");
 
       if (blueAllianceCounter == allianceRunOne) {
         console.log("blue complete: " + blueAllianceCounter + " " + allianceRunOne);
@@ -74,7 +74,7 @@ class teamSkillCompare {
     }
 
     async function redAllianceLoop (redAllianceCounter) {
-      console.log("ran");
+      console.log("ran red");
       if (redAllianceCounter == allianceRunTwo) {
         skillMatchResultManifest.result = "complete";
         return 0;
