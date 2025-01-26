@@ -16,7 +16,7 @@ class teamSkillAssessment () {
         "Content-Type" : "application/json"
       },
       body : JSON.stringify({
-        url : "https://frc-events.firstinspires.org/team/" + String(teamNum)
+        url : "https://frc-events.firstinspires.org/team/" + String(this.teamNumber)
       })
     })
     .then(response => response.text())
