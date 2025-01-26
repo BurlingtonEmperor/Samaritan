@@ -1,4 +1,6 @@
 let skillMatchResult = "";
+let finalBlueAlliancePoints = 0;
+let finalRedAlliancePoints = 0;
 
 class teamSkillCompare {
   constructor (blueAlliance, redAlliance) {
@@ -59,6 +61,7 @@ class teamSkillCompare {
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           blueAlliancePoints += val;    
           blueAllianceCounter++;
+          finalBlueAlliancePoints = blueAllianceCounter;
           target[prop] = val;
           blueAllianceLoop();
         }
@@ -80,6 +83,7 @@ class teamSkillCompare {
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           redAlliancePoints += val;    
           redAllianceCounter++;
+          finalRedAlliancePoints = redAllianceCounter;
           target[prop] = val;
           redAllianceLoop();
         }
