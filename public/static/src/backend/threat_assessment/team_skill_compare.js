@@ -23,31 +23,41 @@ class teamSkillCompare {
     // }
 
     let blueAllianceCounter = 0;
-    while (blueAllianceCounter !== this.blueAlliance.length) {
+    function blueAllianceLoop () {
+      if (blueAllianceCounter == this.blueAlliance.length) {
+        return 0;
+      }
+
       const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
         set (target, prop, val) {
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           blueAlliancePoints += val;    
           blueAllianceCounter++;
           target[prop] = val;
+          blueAllianceLoop();
         }
       });
 
-      await teamSkillAssessment(this.blueAlliance[blueAllianceCounter]);
+      await teamSkillAssessment(this.blueAlliance[blueAllianceCounter]); 
     }
 
     let redAllianceCounter = 0;
-    while (redAllianceCounter !== this.redAlliance.length) {
+    function redAllianceLoop () {
+      if (redAllianceCounter == this.redAlliance.length) {
+        return 0;
+      }
+
       const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
         set (target, prop, val) {
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           redAlliancePoints += val;    
           redAllianceCounter++;
           target[prop] = val;
+          redAllianceLoop();
         }
       });
 
-      await teamSkillAssessment(this.redAlliance[redAllianceCounter]);
+      await teamSkillAssessment(this.blueAlliance[blueAllianceCounter]); 
     }
 
     switch (true) {
