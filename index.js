@@ -70,10 +70,8 @@ app.post('/get_source', async function (req, res) {
     }
   })
   .then(res => res.text())
-  .then(html => {
-    const $ = cheerio.load(html);
-    
-    res.send($.html);
+  .then(html => {    
+    res.send(html);
   });
 });
 
