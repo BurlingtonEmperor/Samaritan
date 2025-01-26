@@ -122,3 +122,32 @@ class teamSkillCompare {
     return "success";
   }
 }
+
+// use with a timeout function
+function getTrueSkillComparison () {
+  let redStorageLength = redStorage.length;
+  let trueBlueScore = 0;
+  let trueRedScore = 0;
+
+  switch (true) {
+    case (redStorageLength % 2):
+      return "samaritan-error: odd number of teams";
+    default:
+      for (let i = 0; i < ((redStorageLength / 2) - 1); i++) {
+        trueBlueScore += parseInt(redStorage[i]);
+      }
+
+      for (let i = (redStorageLength / 2); i < redStorageLength; i++) {
+        trueRedScore += parseInt(redStorage[i])
+      }
+
+      switch (true) {
+        case (trueBlueScore < trueRedScore):
+          return "red likely";
+        case (trueBlueScore > trueRedScore):
+          return "blue likely";
+        default:
+          return "outcome unknown";
+      }
+  }
+}
