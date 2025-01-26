@@ -10,6 +10,9 @@ class teamSkillCompare {
     let blueAlliancePoints = 0;
     let redAlliancePoints = 0;
 
+    console.log(this.blueAlliance.length);
+    console.log(this.redAlliance.length);
+
     let skillMatchResultManifest = new Proxy({ result : 0 }, {
       set (target, prop, val) {
         switch (true) {
