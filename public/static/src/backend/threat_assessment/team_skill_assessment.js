@@ -10,7 +10,7 @@ class teamSkillAssessment {
   }
 
   assessThreat () {
-    fetch ("/get_html", {
+    fetch ("/get_source", {
       method : "POST",
       headers : {
         "Content-Type" : "application/json"
