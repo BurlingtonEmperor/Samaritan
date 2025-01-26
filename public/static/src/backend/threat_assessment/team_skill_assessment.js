@@ -27,10 +27,16 @@ async function teamSkillAssessment (teamNumber, yesStore) {
   .then(response => response.text())
   .then(data => {
     htmlData = data;
+    let usualScrapeNum = 8;
 
     dummyParser.innerHTML = htmlData;
     const dummyParserSkillFinder = dummyParser.querySelectorAll(".text-end");
-    let awardNum = dummyParserSkillFinder[8].innerText.replace(" ", "");
+    switch (true) {
+      case (dummyParserSkillFinder.length > 12):
+        usualScrapeNum = 9;
+        break;
+    }
+    let awardNum = dummyParserSkillFinder[usualScrapeNum].innerText.replace(" ", "");
       
     ultimateResult.result = parseInt(awardNum);
 
