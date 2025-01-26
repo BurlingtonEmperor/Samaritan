@@ -22,8 +22,8 @@ const cheerio = require("cheerio");
 // const unirest = require("unirest");
 
 // const url = "https://frc-events.firstinspires.org/2024/team/2876";
-// const ua =
-//   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36";
+const ua =
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36";
 
 // function cheerioTest () {
 //   fetch(url, {
@@ -62,22 +62,20 @@ app.post('/get_search', async function (req, res) {
 });
 
 app.post('/get_text', async function (req, res) {
-  // const url = req.body.url;
-
-  // const browser = await puppeteer.launch({
-  //   executablePath : "/home/runner/.cache/puppeteer/chrome/linux-132.0.6834.110/chrome-linux64/chrome"
-  // });
-  // const page = await browser.newPage();
-
-  // await page.goto(url);
-  // const bodyText = await page.$eval('*', el => el.innerText);
-
-  // res.send(bodyText);
-
-  res.send("unavailable");
+  fetch(url, {
+    headers: {
+      "User-Agent": ua,
+    }
+  })
+  .then(res => res.text())
+  .then(html => {
+    const $ = cheerio.load(html);
+    const bodyText = $("body").text();
+    
+    res.send(bodyText);
+  });
 });
 
 http.listen(port, function() {
-  // cheerioTest();
   console.log('listening on *:' + port);
 });
