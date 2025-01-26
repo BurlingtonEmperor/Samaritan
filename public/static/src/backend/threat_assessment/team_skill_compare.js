@@ -51,48 +51,35 @@ class teamSkillCompare {
     async function blueAllianceLoop (blueAllianceCounter) {
       console.log("ran blue");
 
-      if (blueAllianceCounter == allianceRunOne) {
-        console.log("blue complete: " + blueAllianceCounter + " " + allianceRunOne);
-        return 0;
-      }
-
       const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
         set (target, prop, val) {
           blueAlliancePoints += val;    
-          blueAllianceCounter++;
           finalBlueAlliancePoints = blueAlliancePoints;
-          console.log(blueAlliancePoints);
-          console.log("tet");
-          alert(val);
-          alert(`ultimateResulForComparison.result changed from ${target[prop]} to ${val} (blue)`);
+          
+          console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val} (blue)`);
           target[prop] = val;
           return true;
         }
       });
   
-      await teamSkillAssessment(allianceOne[blueAllianceCounter]); 
+      ultimateResultForComparison.result = await teamSkillAssessment(allianceOne[blueAllianceCounter]); 
     }
 
     async function redAllianceLoop (redAllianceCounter) {
       console.log("ran red");
-      if (redAllianceCounter == allianceRunTwo) {
-        skillMatchResultManifest.result = "complete";
-        return 0;
-      }
 
       const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
         set (target, prop, val) {
-          console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val} (red)`);
           redAlliancePoints += val;    
-          redAllianceCounter++;
           finalRedAlliancePoints = redAlliancePoints;
+          console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val} (red)`);
+          
           target[prop] = val;
           return true;
         }
       });
       
-      finalRedAlliancePoints += ultimateResultForComparison.result;
-      await teamSkillAssessment(allianceTwo[redAllianceCounter]); 
+      ultimateResultForComparison.result = await teamSkillAssessment(allianceTwo[redAllianceCounter]); 
     }
 
     async function tryBlue () {
