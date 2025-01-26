@@ -1,7 +1,7 @@
 let htmlData = "";
 const ultimateResult = new Proxy({ result : 0 }, { 
   set (target, prop, val) {
-    console.log(`ultimateResult.result changed from ${target[prop]} to ${val}`);
+    console.log(`ultimateResult.result changed from ${target[prop]} to ${val} (skillAssessment)`);
     target[prop] = val;
   }
 });
