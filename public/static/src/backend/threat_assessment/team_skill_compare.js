@@ -98,6 +98,10 @@ class teamSkillCompare {
         await redAllianceLoop();
       }
     }
+
+    async function whatsThePoint () {
+      skillMatchResultManifest.result = "complete";
+    }
     // if (blueAlliancePoints < redAlliancePoints) {
     //   skillMatchResult = "red likely";
     // }
@@ -112,6 +116,7 @@ class teamSkillCompare {
     
     await tryBlue();
     await tryRed();
+    await whatsThePoint();
     return "success";
   }
 }
