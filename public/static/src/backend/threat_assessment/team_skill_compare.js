@@ -50,9 +50,7 @@ class teamSkillCompare {
 
     let blueAllianceCounter = 0;
     async function blueAllianceLoop () {
-      console.log("ran" + " " + ultimateResultForComparison.result);
-      blueAlliancePoints += ultimateResultForComparison.result;
-      finalBlueAlliancePoints = blueAlliancePoints;
+      console.log("ran");
 
       if (blueAllianceCounter == allianceRunOne) {
         console.log("blue complete: " + blueAllianceCounter + " " + allianceRunOne);
@@ -65,6 +63,7 @@ class teamSkillCompare {
           blueAllianceCounter++;
           finalBlueAlliancePoints = blueAlliancePoints;
           console.log(blueAlliancePoints);
+          console.log(val);
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           target[prop] = val;
           blueAllianceLoop();
