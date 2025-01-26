@@ -9,7 +9,7 @@ class teamSkillAssessment {
     this.teamNumber = teamNumber;
   }
 
-  assessThreat () {
+  async assessThreat () {
     fetch ("/get_source", {
       method : "POST",
       headers : {
