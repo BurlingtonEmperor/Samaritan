@@ -63,7 +63,7 @@ class teamSkillCompare {
           blueAllianceCounter++;
           finalBlueAlliancePoints = blueAlliancePoints;
           console.log(blueAlliancePoints);
-          console.log(val);
+          console.log("tet");
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           target[prop] = val;
           blueAllianceLoop();
