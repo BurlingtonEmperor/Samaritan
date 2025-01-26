@@ -11,7 +11,7 @@ class teamSkillCompare {
     let redAlliancePoints = 0;
 
     for (let i = 0; i < this.blueAlliance.length; i++) {
-      teamSkillAssessment(this.blueAlliance[i]);
+      await teamSkillAssessment(this.blueAlliance[i]);
       setTimeout(function () {
         console.log(ultimateResult);
         blueAlliancePoints += ultimateResult;
@@ -19,8 +19,7 @@ class teamSkillCompare {
     }
 
     for (let i = 0; i < this.redAlliance.length; i++) {
-      teamSkillAssessment(this.redAlliance[i]);
-      specificAllianceTeam.assessThreat();
+      await teamSkillAssessment(this.redAlliance[i]);
       setTimeout(function () {
         console.log(ultimateResult);
         redAlliancePoints += ultimateResult;

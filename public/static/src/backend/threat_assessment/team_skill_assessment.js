@@ -4,7 +4,7 @@ let ultimateResult = "";
 const dummyParser = document.createElement("html");
 dummyParser.style.display = "none";
 
-function teamSkillAssessment (teamNumber) {
+async function teamSkillAssessment (teamNumber) {
   fetch ("/get_source", {
     method : "POST",
     headers : {
