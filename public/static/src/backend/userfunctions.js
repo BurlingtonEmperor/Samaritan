@@ -24,7 +24,26 @@ class inputParsing {
     })
     .catch(error => {
       return "samaritan-error: " + error;
+    });
+  }
+
+  getSource () {
+    fetch ("/get_source", {
+      method : "POST",
+      headers : {
+        "Content-Type" : "application/json" 
+      },
+      body : JSON.stringify({
+        url : this.user_input
+      })
     })
+    .then(response => response.text())
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      return "samaritan-error: " + error;
+    });
   }
 
   searchEngine () {

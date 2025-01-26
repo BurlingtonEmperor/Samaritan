@@ -61,9 +61,25 @@ app.post('/get_search', async function (req, res) {
   });
 });
 
+app.post('/get_source', async function (req, res) {
+  url = req.body.url;
+
+  fetch(url, {
+    headers: {
+      "User-Agent": ua,
+    }
+  })
+  .then(res => res.text())
+  .then(html => {
+    const $ = cheerio.load(html);
+    
+    res.send($);
+  });
+});
+
 app.post('/get_text', async function (req, res) {
   url = req.body.url;
-  
+
   fetch(url, {
     headers: {
       "User-Agent": ua,
