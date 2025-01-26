@@ -62,6 +62,8 @@ app.post('/get_search', async function (req, res) {
 });
 
 app.post('/get_text', async function (req, res) {
+  url = req.body.url;
+  
   fetch(url, {
     headers: {
       "User-Agent": ua,
