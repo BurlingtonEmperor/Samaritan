@@ -48,8 +48,7 @@ class teamSkillCompare {
     //   }
     // }
 
-    let blueAllianceCounter = 0;
-    async function blueAllianceLoop () {
+    async function blueAllianceLoop (blueAllianceCounter) {
       console.log("ran");
 
       if (blueAllianceCounter == allianceRunOne) {
@@ -67,7 +66,6 @@ class teamSkillCompare {
           alert(val);
           alert(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           target[prop] = val;
-          blueAllianceLoop();
           return true;
         }
       });
@@ -75,8 +73,7 @@ class teamSkillCompare {
       await teamSkillAssessment(allianceOne[blueAllianceCounter]); 
     }
 
-    let redAllianceCounter = 0;
-    async function redAllianceLoop () {
+    async function redAllianceLoop (redAllianceCounter) {
       console.log("ran");
       if (redAllianceCounter == allianceRunTwo) {
         skillMatchResultManifest.result = "complete";
@@ -90,25 +87,24 @@ class teamSkillCompare {
           redAllianceCounter++;
           finalRedAlliancePoints = redAlliancePoints;
           target[prop] = val;
-          redAllianceLoop();
           return true;
         }
       });
       
       finalRedAlliancePoints += ultimateResultForComparison.result;
-      await teamSkillAssessment(allianceTwo[blueAllianceCounter]); 
+      await teamSkillAssessment(allianceTwo[redAllianceCounter]); 
     }
 
     async function tryBlue () {
       for (let i = 0; i < allianceRunOne; i++) {
-        await blueAllianceLoop();
+        await blueAllianceLoop(i);
       }
 
     }
 
     async function tryRed () {
       for (let i = 0; i < allianceRunTwo; i++) {
-        await redAllianceLoop();
+        await redAllianceLoop(i);
       }
     }
 
