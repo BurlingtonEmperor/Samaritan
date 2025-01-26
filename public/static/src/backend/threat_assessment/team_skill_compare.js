@@ -54,6 +54,7 @@ class teamSkillCompare {
       const ultimateResultForComparison = new Proxy({ result : ultimateResult.result }, { 
         set (target, prop, val) {
           blueAlliancePoints += parseInt(val);    
+          console.log("Blue alliance points: " + blueAlliancePoints + ", run:" + blueAllianceCounter);
           finalBlueAlliancePoints = blueAlliancePoints;
           
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val} (blue)`);
