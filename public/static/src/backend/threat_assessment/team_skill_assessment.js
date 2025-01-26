@@ -23,7 +23,7 @@ async function teamSkillAssessment (teamNumber) {
     let awardNum = dummyParserSkillFinder[8].innerText.replace(" ", "");
       
     ultimateResult = parseInt(awardNum);
-    return "success";
+    return ultimateResult;
   })
   .catch(error => {
     return error;
