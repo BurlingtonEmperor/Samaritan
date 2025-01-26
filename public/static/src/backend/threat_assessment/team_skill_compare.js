@@ -23,7 +23,7 @@ class teamSkillCompare {
     // }
 
     let blueAllianceCounter = 0;
-    function blueAllianceLoop () {
+    async function blueAllianceLoop () {
       if (blueAllianceCounter == this.blueAlliance.length) {
         return 0;
       }
@@ -42,7 +42,7 @@ class teamSkillCompare {
     }
 
     let redAllianceCounter = 0;
-    function redAllianceLoop () {
+    async function redAllianceLoop () {
       if (redAllianceCounter == this.redAlliance.length) {
         return 0;
       }
