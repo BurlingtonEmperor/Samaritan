@@ -33,7 +33,7 @@ class teamSkillCompare {
         }
       });
 
-      await teamSkillAssessment(this.blueAlliance[i]);
+      await teamSkillAssessment(this.blueAlliance[blueAllianceCounter]);
     }
 
     let redAllianceCounter = 0;
@@ -47,7 +47,7 @@ class teamSkillCompare {
         }
       });
 
-      await teamSkillAssessment(this.redAlliance[i]);
+      await teamSkillAssessment(this.redAlliance[redAllianceCounter]);
     }
 
     switch (true) {
