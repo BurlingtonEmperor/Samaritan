@@ -10,6 +10,22 @@ class teamSkillCompare {
     let blueAlliancePoints = 0;
     let redAlliancePoints = 0;
 
+    let skillMatchResultManifest = new Proxy({ result : 0 }, {
+      set (target, prop, val) {
+        switch (true) {
+          case (blueAlliancePoints < redAlliancePoints):
+            skillMatchResult = "red likely";
+            break;
+          case (blueAlliancePoints > redAlliancePoints):
+            skillMatchResult = "blue likely";
+            break;
+          default:
+            skillMatchResult = "outcome unknown";
+            break;
+        }
+      }
+    });
+
     // for (let i = 0; i < (this.blueAlliance.length * 2); i++) {
     //   switch (diceRoll) {
     //     case 0:
@@ -44,6 +60,7 @@ class teamSkillCompare {
     let redAllianceCounter = 0;
     async function redAllianceLoop () {
       if (redAllianceCounter == this.redAlliance.length) {
+        skillMatchResultManifest.result = "complete";
         return 0;
       }
 
@@ -59,19 +76,6 @@ class teamSkillCompare {
 
       await teamSkillAssessment(this.blueAlliance[blueAllianceCounter]); 
     }
-
-    switch (true) {
-      case (blueAlliancePoints < redAlliancePoints):
-        skillMatchResult = "red likely";
-        break;
-      case (blueAlliancePoints > redAlliancePoints):
-        skillMatchResult = "blue likely";
-        break;
-      default:
-        skillMatchResult = "outcome unknown";
-        break;
-    }
-
     // if (blueAlliancePoints < redAlliancePoints) {
     //   skillMatchResult = "red likely";
     // }
@@ -84,6 +88,8 @@ class teamSkillCompare {
     //   skillMatchResult = "outcome unknown";
     // }
     
+    await blueAllianceLoop();
+    await redAllianceLoop();
     return "success";
   }
 }
