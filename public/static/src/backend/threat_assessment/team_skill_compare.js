@@ -2,6 +2,35 @@ let skillMatchResult = "";
 let finalBlueAlliancePoints = 0;
 let finalRedAlliancePoints = 0;
 
+// use with a timeout function
+function getTrueSkillComparison () {
+  let redStorageLength = redStorage.length;
+  let trueBlueScore = 0;
+  let trueRedScore = 0;
+
+  switch (true) {
+    case (redStorageLength % 2):
+      return "samaritan-error: odd number of teams";
+    default:
+      for (let i = 0; i < ((redStorageLength / 2) - 1); i++) {
+        trueBlueScore += parseInt(redStorage[i]);
+      }
+
+      for (let i = (redStorageLength / 2); i < redStorageLength; i++) {
+        trueRedScore += parseInt(redStorage[i])
+      }
+
+      switch (true) {
+        case (trueBlueScore < trueRedScore):
+          return "red likely";
+        case (trueBlueScore > trueRedScore):
+          return "blue likely";
+        default:
+          return "outcome unknown";
+      }
+  }
+}
+
 class teamSkillCompare {
   constructor (blueAlliance, redAlliance) {
     this.blueAlliance = blueAlliance;
@@ -121,33 +150,15 @@ class teamSkillCompare {
     await whatsThePoint();
     return "success";
   }
-}
 
-// use with a timeout function
-function getTrueSkillComparison () {
-  let redStorageLength = redStorage.length;
-  let trueBlueScore = 0;
-  let trueRedScore = 0;
+  awaitInternet (callBackFunction) {
+    let lengthFinder = this.blueAlliance.length + this.redAlliance.length;
 
-  switch (true) {
-    case (redStorageLength % 2):
-      return "samaritan-error: odd number of teams";
-    default:
-      for (let i = 0; i < ((redStorageLength / 2) - 1); i++) {
-        trueBlueScore += parseInt(redStorage[i]);
+    const skillComparisonConnection = setInterval (function () {
+      if (redStorage.length == lengthFinder) {
+        clearInterval(skillComparisonConnection);
+        callBackFunction();
       }
-
-      for (let i = (redStorageLength / 2); i < redStorageLength; i++) {
-        trueRedScore += parseInt(redStorage[i])
-      }
-
-      switch (true) {
-        case (trueBlueScore < trueRedScore):
-          return "red likely";
-        case (trueBlueScore > trueRedScore):
-          return "blue likely";
-        default:
-          return "outcome unknown";
-      }
+    }, 200);
   }
 }
