@@ -67,7 +67,9 @@ class teamSkillCompare {
           blueAllianceLoop();
         }
       });
-
+      
+      blueAlliancePoints += ultimateResultForComparison.result;
+      finalBlueAlliancePoints = blueAlliancePoints;
       await teamSkillAssessment(allianceOne[blueAllianceCounter]); 
     }
 
