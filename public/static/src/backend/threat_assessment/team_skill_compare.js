@@ -67,6 +67,7 @@ class teamSkillCompare {
           console.log(`ultimateResulForComparison.result changed from ${target[prop]} to ${val}`);
           target[prop] = val;
           blueAllianceLoop();
+          return true;
         }
       });
   
