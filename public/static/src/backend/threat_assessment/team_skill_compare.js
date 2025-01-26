@@ -10,8 +10,11 @@ class teamSkillCompare {
     let blueAlliancePoints = 0;
     let redAlliancePoints = 0;
 
-    console.log(this.blueAlliance.length);
-    console.log(this.redAlliance.length);
+    let allianceRunOne = this.blueAlliance.length;
+    let allianceRunTwo = this.redAlliance.length;
+
+    let allianceOne = this.blueAlliance;
+    let allianceTwo = this.redAlliance;
 
     let skillMatchResultManifest = new Proxy({ result : 0 }, {
       set (target, prop, val) {
@@ -43,7 +46,7 @@ class teamSkillCompare {
 
     let blueAllianceCounter = 0;
     async function blueAllianceLoop () {
-      if (blueAllianceCounter == this.blueAlliance.length) {
+      if (blueAllianceCounter == allianceRunOne) {
         return 0;
       }
 
@@ -57,12 +60,12 @@ class teamSkillCompare {
         }
       });
 
-      await teamSkillAssessment(this.blueAlliance[blueAllianceCounter]); 
+      await teamSkillAssessment(allianceOne[blueAllianceCounter]); 
     }
 
     let redAllianceCounter = 0;
     async function redAllianceLoop () {
-      if (redAllianceCounter == this.redAlliance.length) {
+      if (redAllianceCounter == allianceRunTwo) {
         skillMatchResultManifest.result = "complete";
         return 0;
       }
@@ -77,7 +80,7 @@ class teamSkillCompare {
         }
       });
 
-      await teamSkillAssessment(this.blueAlliance[blueAllianceCounter]); 
+      await teamSkillAssessment(allianceTwo[blueAllianceCounter]); 
     }
     // if (blueAlliancePoints < redAlliancePoints) {
     //   skillMatchResult = "red likely";
