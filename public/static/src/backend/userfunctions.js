@@ -20,10 +20,10 @@ class inputParsing {
     })
     .then(response => response.text())
     .then(data => {
-      return data;
+      searchEngineOutput = data;
     })
     .catch(error => {
-      return "samaritan-error: " + error;
+      searchEngineOutput = "samaritan-error: " + error;
     });
   }
 
@@ -39,10 +39,10 @@ class inputParsing {
     })
     .then(response => response.text())
     .then(data => {
-      return data;
+      searchEngineOutput = data;
     })
     .catch(error => {
-      return "samaritan-error: " + error;
+      searchEngineOutput = "samaritan-error: " + error;
     });
   }
 
@@ -91,7 +91,7 @@ class inputParsing {
       searchEngineOutput = finalResultArray;
     })
     .catch(error => {
-      return "samaritan-error: " + error;
+      searchEngineOutput = "samaritan-error: " + error;
     });
   }
 }
