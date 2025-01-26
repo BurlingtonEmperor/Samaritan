@@ -9,17 +9,33 @@ class teamSkillCompare {
   async runMatch () {
     let blueAlliancePoints = 0;
     let redAlliancePoints = 0;
+    
+    let diceRoll = 0;
 
-    for (let i = 0; i < this.blueAlliance.length; i++) {
-      await teamSkillAssessment(this.blueAlliance[i]);
-      console.log(ultimateResult);
-      blueAlliancePoints += ultimateResult;
+    for (let i = 0; i < (this.blueAlliance.length * 2); i++) {
+      switch (diceRoll) {
+        case 0:
+          await teamSkillAssessment(this.blueAlliance[i]);
+          console.log(ultimateResult);
+          blueAlliancePoints += ultimateResult;
+          break;
+        case 1:
+          break;
+      }
     }
 
-    for (let i = 0; i < this.redAlliance.length; i++) {
-      await teamSkillAssessment(this.redAlliance[i]);
-      console.log(ultimateResult);
-      redAlliancePoints += ultimateResult;
+    diceRoll = 0;
+
+    for (let i = 0; i < (this.redAlliance.length * 2); i++) {
+      switch (diceRoll) {
+        case 0:
+          await teamSkillAssessment(this.redAlliance[i]);
+          console.log(ultimateResult);
+          redAlliancePoints += ultimateResult;
+          break;
+        case 1:
+          break;
+      }
     }
 
     switch (true) {
