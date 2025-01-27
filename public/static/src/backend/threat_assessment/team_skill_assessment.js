@@ -10,7 +10,6 @@ const ultimateResult = new Proxy({ result : 0 }, {
   }
 });
 
-
 const dummyParser = document.createElement("html");
 dummyParser.style.display = "none";
 
@@ -27,25 +26,30 @@ async function teamSkillAssessment (teamNumber, yesStore) {
   .then(response => response.text())
   .then(data => {
     htmlData = data;
-    let usualScrapeNum = 8;
+    // let usualScrapeNum = 8;
+    // let awardNum;
 
     dummyParser.innerHTML = htmlData;
     const dummyParserSkillFinder = dummyParser.querySelectorAll(".text-end");
-    switch (true) {
-      case (dummyParserSkillFinder.length > 12):
-        usualScrapeNum = 9;
-        break;
-    }
-    let awardNum = dummyParserSkillFinder[usualScrapeNum].innerText.replace(" ", "");
-      
-    ultimateResult.result = parseInt(awardNum);
+    // switch (true) {
+    //   case (dummyParserSkillFinder.length > 12):
+    //     usualScrapeNum = 9;
+    //     break;
+    // }
+    console.log(dummyParserSkillFinder[8]);
+    let awardNum = dummyParserSkillFinder[8].innerText.replace(" ", "");
 
     switch (yesStore) {
       case 1:
         redStorage.push(ultimateResult.result);
         break;
     }
-    return ultimateResult.result;
+    ultimateResult.result = parseInt(awardNum);
+
+    if (dummyParserSkillFinder.length > 19) {
+      ultimateResult.result = parseInt(dummyParserSkillFinder[9].innerText.replace(" ", ""));
+      redStorage[redStorage.length - 1] = ultimateResult.result;
+    }
   })
   .catch(error => {
     return error;
