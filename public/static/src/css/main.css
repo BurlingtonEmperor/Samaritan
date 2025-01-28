@@ -1,7 +1,7 @@
 body {
-  color: black;
+  color: white;
   font-family: monospace;
-  background-color: whitesmoke;
+  background-color: black;
 }
 
 .absolute-center {
@@ -16,4 +16,14 @@ body {
 
 .large-text {
   font-size: 3vw;
+}
+
+#samaritan-interface {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}
+
+#nabla {
+  color: red;
 }
