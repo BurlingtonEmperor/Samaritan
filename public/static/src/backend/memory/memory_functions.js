@@ -1,4 +1,4 @@
-const memoryUnitNameArray = ["newActionWordsMemory", "newArticleWordsMemory", "newAdjectiveWordsMemory", "newSubjectWordsMemory", "socialMediaSites", "assestSites", "resourceSites"];
+const memoryUnitNameArray = ["newActionWordsMemory", "newArticleWordsMemory", "newAdjectiveWordsMemory", "newSubjectWordsMemory", "socialMediaSites", "assestSites", "resourceSites", "relevantList"];
 
 function checkMemoryUnits (memoryUnit) {
   if (memoryUnit == null || memoryUnit == "" || memoryUnit == undefined) {

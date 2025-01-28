@@ -1,5 +1,6 @@
 let htmlData = "";
 let populatedComparisonLigand = 0;
+let relevancyCalculation = 0;
 let redStorage = [];
 
 const ultimateResult = new Proxy({ result : 0 }, { 
@@ -49,6 +50,12 @@ async function teamSkillAssessment (teamNumber, yesStore) {
     if (dummyParserSkillFinder.length > 19) {
       ultimateResult.result = parseInt(dummyParserSkillFinder[9].innerText.replace(" ", ""));
       redStorage[redStorage.length - 1] = ultimateResult.result;
+    }
+
+    switch (relevancyCalculation) {
+      case 1:
+        relevancyCounter(teamNumber);
+        break;
     }
   })
   .catch(error => {
