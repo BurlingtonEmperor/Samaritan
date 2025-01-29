@@ -1,6 +1,7 @@
 const samaritanVoice = document.getElementById("samaritan-voice");
 const nabla = document.getElementById("nabla");
 const samaritanInterface = document.getElementById("samaritan-interface");
+const desktopNabla = document.getElementById("desktop-nabla");
 
 function typeWriterEffect (typeWriterText, targetElement, textSpeed) {
   let i = 0;
@@ -26,6 +27,11 @@ if (mobileCheck == true) {
   console.log("is mobile");
   nabla.classList.remove("large-text");
   nabla.classList.add("mobile-nabla");
+}
+
+else {
+  nabla.style.display = "none";
+  desktopNabla.style.display = "block";
 }
 
 typeWriterEffect("HELLO,_ASSET", samaritanInterface, 40);

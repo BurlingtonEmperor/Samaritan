@@ -31,5 +31,12 @@ body {
 }
 
 #nabla {
+  text-align: center;
+  color: red;
+}
+
+#desktop-nabla {
+  display: none;
+  text-align: center;
   color: red;
 }
