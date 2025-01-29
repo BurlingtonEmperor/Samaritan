@@ -18,6 +18,10 @@ body {
   font-size: 3vw;
 }
 
+.mobile-nabla {
+  font-size: 10vw;
+}
+
 #samaritan-interface {
   width: 100%;
   position: absolute;
