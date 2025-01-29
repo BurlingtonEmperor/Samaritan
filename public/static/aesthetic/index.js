@@ -1,5 +1,6 @@
 const samaritanVoice = document.getElementById("samaritan-voice");
 const nabla = document.getElementById("nabla");
+const samaritanInterface = document.getElementById("samaritan-interface");
 
 function typeWriterEffect (typeWriterText, targetElement, textSpeed) {
   let i = 0;
@@ -26,3 +27,5 @@ if (mobileCheck == true) {
   nabla.classList.remove("large-text");
   nabla.classList.add("mobile-nabla");
 }
+
+typeWriterEffect("HELLO,_ASSET", samaritanInterface, 40);

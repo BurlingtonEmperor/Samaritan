@@ -1,5 +1,6 @@
 body {
   color: white;
+  margin: 0;
   font-family: monospace;
   background-color: black;
 }
@@ -15,17 +16,18 @@ body {
 }
 
 .large-text {
-  font-size: 3vw;
+  font-size: 10vw;
 }
 
 .mobile-nabla {
-  font-size: 10vw;
+  font-size: 25vw;
 }
 
 #samaritan-interface {
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 40%;
+  word-break: break-all;
 }
 
 #nabla {
