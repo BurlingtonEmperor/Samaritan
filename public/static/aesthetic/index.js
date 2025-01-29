@@ -22,6 +22,7 @@ function mobileCheck () {
 }
 
 if (mobileCheck == true) {
+  console.log("is mobile");
   nabla.classList.remove("large-text");
   nabla.classList.add("mobile-nabla");
 }
