@@ -1,0 +1,66 @@
+body {
+  color: white;
+  margin: 0;
+  font-family: monospace;
+  background-color: black;
+}
+
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.large-text {
+  font-size: 10vw;
+}
+
+.mid-text {
+  font-size: 2vw;
+}
+
+.mobile-nabla {
+  font-size: 25vw;
+}
+
+.sam-button {
+  width: 40%;
+  color: white;
+  text-align: center;
+  margin: auto;
+  border: 1px solid white;
+}
+
+.sam-button:hover {
+  background-color: white;
+}
+
+#samaritan-interface {
+  width: 100%;
+  position: absolute;
+  top: 40%;
+  word-break: break-all;
+}
+
+#nabla {
+  text-align: center;
+  color: red;
+}
+
+#desktop-nabla {
+  display: none;
+  text-align: center;
+  color: red;
+}
+
+#sammy, #sammy-sim, #sammy-rel, #sammy-strat {
+  margin: auto;
+  left: 0; right: 0;
+  display: none;
+  text-align: center;
+  position: relative;
+}
