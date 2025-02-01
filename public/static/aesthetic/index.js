@@ -3,6 +3,9 @@ const nabla = document.getElementById("nabla");
 const samaritanInterface = document.getElementById("samaritan-interface");
 const desktopNabla = document.getElementById("desktop-nabla");
 
+const manualCommandSec = document.getElementById("command-input-sec");
+const sammySec = document.getElementById("sammy");
+
 let typeWriterTime = 0;
 
 async function typeWriterEffect (typeWriterText, targetElement, textSpeed) {

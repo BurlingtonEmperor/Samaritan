@@ -58,10 +58,22 @@ body {
   color: red;
 }
 
-#sammy {
+#sammy, #command-input-sec {
   margin: auto;
   left: 0; right: 0;
   display: none;
   text-align: center;
   position: relative;
+}
+
+#cursor-flash {
+  color: white;
+}
+
+#command-input {
+  outline: none;
+  color: white;
+  background-color: black;
+  font-family: monospace;
+  border: none;
 }

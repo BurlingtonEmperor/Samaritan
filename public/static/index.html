@@ -14,9 +14,16 @@
       <p class="text-center large-text" id="samaritan-interface"></p>
     </section>
     <section id="sammy">
-      <section class="sam-button mid-text">PREDICT MATCH</section>
-      <section class="sam-button mid-text">RELEVANT TEAMS</section>
-      <section class="sam-button mid-text">ASSESS THREATS</section>
+      <section class="sam-button mid-text" id="predictMatchButton">PREDICT MATCH</section>
+      <section class="sam-button mid-text" id="relevantTeamsButton">RELEVANT TEAMS</section>
+      <section class="sam-button mid-text" id="assessThreatsButton">ASSESS THREATS</section>
+      <section class="sam-button mid-text" id="manualCommandsButton">MANUAL COMMAND INPUT</section>
+    </section>
+    <section id="command-input-sec">
+      <section id="command-output"></section>
+      <form id="command-input-form">
+        <p class="mid-text"><a id="cursorFlash">∇</a> <input type="text" class="mid-text" id="command-input"/></p>
+      </form>
     </section>
 
     <!-- Libraries -->
@@ -41,5 +48,6 @@
 
     <!-- Aesthetics -->
     <script src="../static/aesthetic/index.js"></script>
+    <script src="../static/aesthetic/buttons.js"></script>
   </body>
 </html>
