@@ -19,3 +19,10 @@ manualCommandsButton.onclick = function () {
   manualCommandSec.style.display = "block";
   sammySec.style.display = "none";
 }
+
+const commandInputBackButton = document.getElementById("commandInputBackButton");
+
+commandInputBackButton.onclick = function () {
+  sammySec.style.display = "block";
+  manualCommandSec.style.display = "none";
+}

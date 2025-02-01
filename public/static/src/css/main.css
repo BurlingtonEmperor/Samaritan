@@ -40,6 +40,10 @@ body {
   cursor: pointer;
 }
 
+.no-margin {
+  margin: 0;
+}
+
 #samaritan-interface {
   width: 100%;
   position: absolute;
@@ -76,4 +80,13 @@ body {
   background-color: black;
   font-family: monospace;
   border: none;
+}
+
+#command-output {
+  border: 1px solid red;
+  color: red;
+  width: 99%;
+  text-align: left;
+  height: 15vh;
+  overflow-y: auto;
 }

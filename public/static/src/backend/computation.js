@@ -1,6 +1,6 @@
 let categoryDictionary = [];
 let contigencyWords = [];
-let userWordHistory = [];
+let userWordHistory = [["test", 3]];
 
 function returnRandomNumber (maxNum, condition) {
   let isOne = 0;
@@ -186,21 +186,30 @@ function suggestWords (user_use_countArray) {
 }
 
 function addWordCount (target_word) {
+  let existsTurn = 0;
+  
   for (let i = 0; i < userWordHistory.length; i++) {
     let userWordHistoryExists = userWordHistory[i][0].toLowerCase();
 
     switch (target_word.toLowerCase()) {
       default:
+        console.log("new word");
         let newWordHistory = [];
         newWordHistory.push(target_word, 1);
         userWordHistory.push(newWordHistory);
-        break;
+        return "success";
       case userWordHistoryExists:
-        let originalCount = userWordHistory[i][1];
-        originalCount++;
-
-        userWordHistory[i][1] = originalCount;
+        existsTurn = 1;
         break;
     }
+  }
+
+  switch (existsTurn) {
+    case 1:
+      let originalCount = userWordHistory[i][1];
+      originalCount++;
+
+      userWordHistory[i][1] = originalCount;
+      return "success";
   }
 }

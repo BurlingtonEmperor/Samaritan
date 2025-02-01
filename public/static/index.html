@@ -20,9 +20,10 @@
       <section class="sam-button mid-text" id="manualCommandsButton">MANUAL COMMAND INPUT</section>
     </section>
     <section id="command-input-sec">
+      <section class="sam-button mid-text" id="commandInputBackButton">RETURN</section>
       <section id="command-output"></section>
       <form id="command-input-form">
-        <p class="mid-text"><a id="cursorFlash">∇</a> <input type="text" class="mid-text" id="command-input"/></p>
+        <p class="mid-text"><a id="cursorFlash">∇</a> <input type="text" class="mid-text" id="command-input" autocomplete="off" autocorrect="off" placeholder="TYPE HERE"/></p>
       </form>
     </section>
 
@@ -42,12 +43,17 @@
     <script src="../static/src/backend/threat_assessment/team_skill_compare.js"></script>
     <script src="../static/src/backend/threat_assessment/team_match_assessment.js"></script>
 
+    <!-- Basic Functions -->
     <script src="../static/src/backend/computation.js"></script>
     <script src="../static/src/backend/filters.js"></script>
     <script src="../static/src/backend/userfunctions.js"></script>
 
+    <!-- Relevance -->
+    <script src="../static/src/backend/threat_assessment/relevance/user_interest.js"></script>
+
     <!-- Aesthetics -->
     <script src="../static/aesthetic/index.js"></script>
     <script src="../static/aesthetic/buttons.js"></script>
+    <script src="../static/aesthetic/forms.js"></script>
   </body>
 </html>
