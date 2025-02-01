@@ -62,7 +62,7 @@ body {
   color: red;
 }
 
-#sammy, #command-input-sec {
+#sammy, #command-input-sec, #relevant-teams-sec {
   margin: auto;
   left: 0; right: 0;
   display: none;

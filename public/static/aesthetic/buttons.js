@@ -8,7 +8,8 @@ predictMatchButton.onclick = function () {
 }
 
 relevantTeamsButton.onclick = function () {
-  
+  relevantTeamsSec.style.display = "block";
+  sammySec.style.display = "none";
 }
 
 assessThreatsButton.onclick = function () {

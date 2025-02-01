@@ -4,6 +4,7 @@ const samaritanInterface = document.getElementById("samaritan-interface");
 const desktopNabla = document.getElementById("desktop-nabla");
 
 const manualCommandSec = document.getElementById("command-input-sec");
+const relevantTeamsSec = document.getElementById("relevant-teams-sec");
 const sammySec = document.getElementById("sammy");
 
 let typeWriterTime = 0;
