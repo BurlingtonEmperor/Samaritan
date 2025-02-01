@@ -5,7 +5,7 @@ const desktopNabla = document.getElementById("desktop-nabla");
 
 let typeWriterTime = 0;
 
-function typeWriterEffect (typeWriterText, targetElement, textSpeed) {
+async function typeWriterEffect (typeWriterText, targetElement, textSpeed) {
   typeWriterTime = textSpeed * typeWriterText.length;
   
   let i = 0;
@@ -16,12 +16,14 @@ function typeWriterEffect (typeWriterText, targetElement, textSpeed) {
         i++;
         setTimeout(typeWriterInternal, textSpeed);
         break;
+      default:
+        return "success";
     }
   }
   typeWriterInternal();
 }
 
-function deType (targetElement) {
+async function deType (targetElement) {
   let i = 0;
   function deTypeInternal () {
     switch (true) {
@@ -32,10 +34,23 @@ function deType (targetElement) {
         break;
       default:
         targetElement.innerText = "";
-        break;
+        return "success";
     }
   }
   deTypeInternal();
+}
+
+async function actualType (textToType, targetElement, textSpeed) {
+  await typeWriterEffect(textToType, targetElement, textSpeed);
+  const checkTypeInterval = setInterval(async function () {
+    if (targetElement.innerText.length == textToType.length) {
+      clearInterval(checkTypeInterval);
+      let timeIng = textSpeed * textToType.length * 3;
+      setTimeout(async function () {
+        await deType(targetElement);
+      }, timeIng);
+    }
+  }, 500);
 }
 
 function mobileCheck () {
@@ -55,6 +70,10 @@ else {
 
 typeWriterEffect("HELLO,_ASSET", samaritanInterface, 40);
 
-setTimeout(function () {
+setTimeout(async function () {
   deType(samaritanInterface);
-}, 5000);
+
+  setTimeout(async function () {
+    await actualType("WHAT_ARE_YOUR_COMMANDS?", samaritanInterface, 40);
+  }, 1000);
+}, 3000);
