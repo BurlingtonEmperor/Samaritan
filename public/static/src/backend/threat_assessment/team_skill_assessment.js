@@ -15,6 +15,7 @@ const dummyParser = document.createElement("html");
 dummyParser.style.display = "none";
 
 async function teamSkillAssessment (teamNumber, yesStore) {
+  addTeamCount(String(teamNumber));
   fetch ("/get_source", {
     method : "POST",
     headers : {

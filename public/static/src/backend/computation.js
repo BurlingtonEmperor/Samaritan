@@ -187,6 +187,7 @@ function suggestWords (user_use_countArray) {
 
 function addWordCount (target_word) {
   let existsTurn = 0;
+  let xStorage = 0;
   
   for (let i = 0; i < userWordHistory.length; i++) {
     let userWordHistoryExists = userWordHistory[i][0].toLowerCase();
@@ -200,16 +201,17 @@ function addWordCount (target_word) {
         return "success";
       case userWordHistoryExists:
         existsTurn = 1;
+        xStorage = i;
         break;
     }
   }
 
   switch (existsTurn) {
     case 1:
-      let originalCount = userWordHistory[i][1];
+      let originalCount = userWordHistory[xStorage][1];
       originalCount++;
 
-      userWordHistory[i][1] = originalCount;
+      userWordHistory[xStorage][1] = originalCount;
       return "success";
   }
 }
