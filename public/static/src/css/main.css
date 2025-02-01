@@ -19,8 +19,25 @@ body {
   font-size: 7vw;
 }
 
+.mid-text {
+  font-size: 2vw;
+}
+
 .mobile-nabla {
   font-size: 25vw;
+}
+
+.sam-button {
+  width: 40%;
+  color: white;
+  text-align: center;
+  margin: auto;
+  border: 1px solid white;
+}
+
+.sam-button:hover {
+  background-color: #dedede;
+  cursor: pointer;
 }
 
 #samaritan-interface {
@@ -39,4 +56,12 @@ body {
   display: none;
   text-align: center;
   color: red;
+}
+
+#sammy {
+  margin: auto;
+  left: 0; right: 0;
+  display: none;
+  text-align: center;
+  position: relative;
 }
