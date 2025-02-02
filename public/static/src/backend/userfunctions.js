@@ -1,3 +1,5 @@
+// really only for testing. these functions only show up if I need something quick
+
 let desiredInput = "";
 let defaultToContigencies = 0;
 
