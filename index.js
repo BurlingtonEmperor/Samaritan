@@ -48,6 +48,10 @@ function randomizeUserAgents () {
   return userAgents[randNum];
 }
 
+function cleanOrganicSearch (searchText) {
+  let filteredSearch = searchText.replace(" ", "%20");
+}
+
 app.get('', function (req, res) {
   const index = __dirname + '/public/static/index.html';
 
@@ -86,7 +90,7 @@ app.post('/get_text', async function (req, res) {
 
   fetch(url, {
     headers: {
-      "User-Agent": ua,
+      "User-Agent" : ua,
     }
   })
   .then(res => res.text())
@@ -95,6 +99,50 @@ app.post('/get_text', async function (req, res) {
     const bodyText = $("body").text();
     
     res.send(bodyText);
+  });
+});
+
+app.post('/scrape_search', async function (req, res) {
+  let desiredText = req.text;
+  unirest.get("https://www.google.com/search?q=" + cleanOrganicSearch(desiredText) + "&gl=us&hl=en")
+  .headers({
+    "User-Agent" : randomizeUserAgents()
+  })
+  .then((response) => {
+    let $ = cheerio.load(response.body);
+    let titles = [];
+    let links = [];
+    let snippets = [];
+    let displayedLinks = [];
+
+    $(".g .yuRUbf h3").each((i, el) => {
+      titles[i] = $(el).text();
+    });
+    $(".yuRUbf a").each((i, el) => {
+      links[i] = $(el).attr("href");
+    });
+    $(".g .VwiC3b ").each((i, el) => {
+      snippets[i] = $(el).text();
+    });
+    $(".g .yuRUbf .NJjxre .tjvcx").each((i, el) => {
+      displayedLinks[i] = $(el).text();
+    });
+
+    const organicResults = [];
+
+    for (let i = 0; i < titles.length; i++) {
+      organicResults[i] = {
+        title: titles[i],
+        links: links[i],
+        snippet: snippets[i],
+        displayedLink: displayedLinks[i],
+      };
+    }
+
+    res.send(organicResults);
+  })
+  .catch(error => {
+    res.send("samaritan-error: " + error);
   });
 });
 
