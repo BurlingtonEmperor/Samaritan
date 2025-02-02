@@ -93,7 +93,7 @@ app.post('/get_text', async function (req, res) {
 });
 
 app.get('*', function(req, res) {
-  res.status(404).sendFile(__dirname + "/static/index.html");
+  res.status(404).send("404");
 });
 
 http.listen(port, function() {
