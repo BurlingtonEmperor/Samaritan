@@ -92,6 +92,10 @@ app.post('/get_text', async function (req, res) {
   });
 });
 
+app.get('*', function(req, res) {
+  res.status(404).sendFile(__dirname + "/static/index.html");
+});
+
 http.listen(port, function() {
   console.log('listening on *:' + port);
 });
