@@ -19,7 +19,7 @@ process.on('uncaughtException', function (exception) {
 });
 
 const cheerio = require("cheerio");
-// const unirest = require("unirest");
+const unirest = require("unirest");
 
 // const url = "https://frc-events.firstinspires.org/2024/team/2876";
 const ua =
