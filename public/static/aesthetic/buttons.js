@@ -22,8 +22,14 @@ manualCommandsButton.onclick = function () {
 }
 
 const commandInputBackButton = document.getElementById("commandInputBackButton");
+const relevantTeamsBackButton = document.getElementById("relevantTeamsBackButton");
 
 commandInputBackButton.onclick = function () {
   sammySec.style.display = "block";
   manualCommandSec.style.display = "none";
+}
+
+relevantTeamsBackButton.onclick = function () {
+  sammySec.style.display = "block";
+  relevantTeamsSec.style.display = "none";
 }
