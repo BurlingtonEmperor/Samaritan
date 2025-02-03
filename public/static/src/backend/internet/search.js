@@ -6,6 +6,7 @@ const searchProxy = new Proxy({ result : [""] }, {
 
 function getSearch (searchText) {
   let linkData = [];
+  console.log(searchText);
 
   fetch ("/scrape_search", {
     method : "POST",
