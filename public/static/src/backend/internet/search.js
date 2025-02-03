@@ -1,3 +1,9 @@
+const searchProxy = new Proxy({ result : 0 }, { 
+  set (target, prop, val) {
+    target[prop] = val;
+  }
+});
+
 function getSearch (searchText) {
   let linkData = [];
 
@@ -17,7 +23,7 @@ function getSearch (searchText) {
       linkData.push(links);
     }
 
-    return linkData;
+    searchProxy.result = linkData;
   })
   .catch(error => {
     throw error;
