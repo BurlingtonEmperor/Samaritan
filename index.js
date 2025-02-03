@@ -103,8 +103,8 @@ app.post('/get_text', async function (req, res) {
 });
 
 app.post('/scrape_search', async function (req, res) {
-  let desiredText = req.text;
-  console.log(desiredText);
+  let desiredText = req.body.text;
+  
   unirest.get("https://www.google.com/search?q=" + cleanOrganicSearch(desiredText) + "&gl=us&hl=en")
   .headers({
     "User-Agent" : randomizeUserAgents()
