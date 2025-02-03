@@ -1,4 +1,4 @@
-const searchProxy = new Proxy({ result : 0 }, { 
+const searchProxy = new Proxy({ result : [""] }, { 
   set (target, prop, val) {
     target[prop] = val;
   }
