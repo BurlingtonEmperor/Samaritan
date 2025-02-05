@@ -139,7 +139,8 @@ app.post('/scrape_search', async function (req, res) {
         displayedLink: displayedLinks[i],
       };
     }
-
+    
+    console.log(organicResults);
     res.send(organicResults);
   })
   .catch(error => {
