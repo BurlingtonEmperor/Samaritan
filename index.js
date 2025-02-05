@@ -116,10 +116,10 @@ app.post('/scrape_search', async function (req, res) {
     let snippets = [];
     let displayedLinks = [];
 
-    $(".g .yuRUbf h3").each((i, el) => {
+    $(".DKV0Md").each((i, el) => {
       titles[i] = $(el).text();
     });
-    $(".yuRUbf a").each((i, el) => {
+    $("a").each((i, el) => {
       links[i] = $(el).attr("href");
     });
     $(".g .VwiC3b ").each((i, el) => {
