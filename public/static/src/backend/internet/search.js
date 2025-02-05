@@ -19,6 +19,7 @@ function getSearch (searchText) {
   })
   .then(response => response.text())
   .then(data => {
+    console.log(data);
     for (let i = 0; i < data.length; i++) {
       let {title, links, snippet, displayedLink} = data[i];
       linkData.push(links);
