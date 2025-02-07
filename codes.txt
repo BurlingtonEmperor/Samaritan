@@ -2,3 +2,4 @@ abort - Abort function, will lead to errors
 samaritan-error - self explanatory, usually accompanied by an actual error message
 liability - don't even bother having them on an alliance. You will LOSE
 small-point - returns format "small-point: x,y" where x is the (likely) minimum number of times a team scores on the small point return and y is the (likely) maximum number of times a team scores on the small point return.
+large-point - returns format "large-point: x,y" where x is the (likely) minimum number of times a team scores on the large point return and y is the (likely) maximum number of times a team scores on the large point return.
