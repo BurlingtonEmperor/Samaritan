@@ -3,6 +3,8 @@ const relevantTeamsButton = document.getElementById("relevantTeamsButton");
 const assessThreatsButton = document.getElementById("assessThreatsButton");
 const manualCommandsButton = document.getElementById("manualCommandsButton");
 
+const sammyButton = document.querySelectorAll(".sam-button");
+
 predictMatchButton.onclick = function () {
   // not a complete function so far
 }
@@ -32,4 +34,32 @@ commandInputBackButton.onclick = function () {
 relevantTeamsBackButton.onclick = function () {
   sammySec.style.display = "block";
   relevantTeamsSec.style.display = "none";
+}
+
+// Nabla
+let nablaClicked = 0;
+
+function adminMode () {
+  document.body.style.backgroundColor = "white";
+  document.body.style.color = "black";
+  
+  for (let i = 0; i < sammyButton.length; i++) {
+    sammyButton[i].style.color = "black";
+    sammyButton[i].style.border = "1px solid black";
+  }
+
+  sammySec.style.display = "none";
+  relevantTeamsSec.style.display = "none";
+  manualCommandSec.style.display = "none";
+
+  await actualType("ENTERING_ADMIN_MODE", samaritanInterface, 40);
+}
+
+desktopNabla.onclick = function () {
+  switch (nablaClicked) {
+    case 0:
+      adminMode();
+      nablaClicked = 1;
+      break;
+  }
 }

@@ -62,6 +62,10 @@ body {
   color: red;
 }
 
+#desktop-nabla:hover {
+  cursor: pointer;
+}
+
 #sammy, #command-input-sec, #relevant-teams-sec {
   margin: auto;
   left: 0; right: 0;
