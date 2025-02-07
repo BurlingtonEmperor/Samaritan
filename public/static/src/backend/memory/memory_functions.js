@@ -1,4 +1,9 @@
 const memoryUnitNameArray = ["newActionWordsMemory", "newArticleWordsMemory", "newAdjectiveWordsMemory", "newSubjectWordsMemory", "socialMediaSites", "assestSites", "resourceSites", "relevantList"];
+const samaritanVersion = "";
+
+function setSamaritanVersion (versionName) {
+  samaritanVersion = versionName;
+}
 
 function checkMemoryUnits (memoryUnit) {
   if (memoryUnit == null || memoryUnit == "" || memoryUnit == undefined) {
@@ -13,23 +18,23 @@ function commitToMemory (memoryUnit, overWrite, newUnit) {
     default:
       return "abort";
     case 0:
-      let oldArrayToAppend = JSON.parse(localStorage.getItem(memoryUnit + "-Samaritan"));
+      let oldArrayToAppend = JSON.parse(localStorage.getItem(memoryUnit + "-Samaritan" + samaritanVersion));
       oldArrayToAppend.push(newUnit);
-      localStorage.setItem(memoryUnit + "-Samaritan", oldArrayToAppend);
+      localStorage.setItem(memoryUnit + "-Samaritan" + samaritanVersion, oldArrayToAppend);
       break;
     case 1:
-      localStorage.setItem(memoryUnit + "-Samaritan", newUnit);
+      localStorage.setItem(memoryUnit + "-Samaritan" + samaritanVersion, newUnit);
       break;
   }
 }
   
 for (let i = 0; i < memoryUnitNameArray.length; i++) {
-  switch (checkMemoryUnits(localStorage.getItem(memoryUnitNameArray[i] + "-Samaritan"))) {
+  switch (checkMemoryUnits(localStorage.getItem(memoryUnitNameArray[i] + "-Samaritan" + samaritanVersion))) {
     case "no memory":
       break;
     case "memory":
       try {
-        let parsedMemoryArray = JSON.parse(localStorage.getItem(memoryUnitNameArray[i] + "-Samaritan"));
+        let parsedMemoryArray = JSON.parse(localStorage.getItem(memoryUnitNameArray[i] + "-Samaritan" + samaritanVersion));
   
         switch (i) {
           case 0:
