@@ -50,6 +50,8 @@ function randomizeUserAgents () {
 
 function cleanOrganicSearch (searchText) {
   let filteredSearch = searchText.replace(" ", "%20");
+
+  return filteredSearch;
 }
 
 app.get('', function (req, res) {
@@ -104,6 +106,7 @@ app.post('/get_text', async function (req, res) {
 
 app.post('/scrape_search', async function (req, res) {
   let desiredText = req.body.text;
+  console.log(cleanOrganicSearch(desiredText));
 
   unirest.get("https://www.google.com/search?q=" + cleanOrganicSearch(desiredText) + "&gl=us&hl=en")
   .headers({
@@ -141,6 +144,7 @@ app.post('/scrape_search', async function (req, res) {
     }
     
     console.log(organicResults);
+    console.log(links, titles);
     res.send(organicResults);
   })
   .catch(error => {
