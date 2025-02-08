@@ -1,0 +1,10 @@
+body {
+  color: red;
+  font-family: monospace;
+  background-color: black;
+}
+
+p, a {
+  margin: 0;
+  font-size: 3vw;
+}

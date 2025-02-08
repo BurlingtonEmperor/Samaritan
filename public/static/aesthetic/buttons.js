@@ -37,9 +37,9 @@ relevantTeamsBackButton.onclick = function () {
 }
 
 // Nabla
-let nablaClicked = 0;
+let nablaClicked = 1;
 
-function adminMode () {
+async function adminMode () {
   document.body.style.backgroundColor = "white";
   document.body.style.color = "black";
   
@@ -55,7 +55,7 @@ function adminMode () {
   await actualType("ENTERING_ADMIN_MODE", samaritanInterface, 40);
 }
 
-desktopNabla.onclick = function () {
+desktopNabla.onclick = async function () {
   switch (nablaClicked) {
     case 0:
       adminMode();
