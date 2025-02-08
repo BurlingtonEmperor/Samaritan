@@ -1,15 +1,25 @@
 let relevantTeamArray = [];
 
 async function prepareRelevantTeams (candidateArray) {
+  redStorage = [];
+  let tempRelStor = [];
+
   for (let i = 0; i < candidateArray.length; i++) {
     await teamSkillAssessment(candidateArray[i], 1);
-
-    let teamArrToPush = [];
-    teamArrToPush.push(candidateArray[i]);
-    teamArrToPush.push(ultimateResult.result);
-
-    relevantTeamArray.push(teamArrToPush);
+    tempRelStor.push(candidateArray[i]);
   }
+
+  const awaitNetInt = setInterval(function () {
+    if (redStorage.length === candidateArray.length) {
+      for (let i = 0; i < candidateArray.length; i++) {
+        let teamArrToPush = [];
+        teamArrToPush.push(candidateArray[i]);
+        teamArrToPush.push(redStorage[i]);
+
+        relevantTeamArray.push(teamArrToPush);
+      }
+    }
+  }, 500);
 }
 
 async function findMostRelevantTeam () {
