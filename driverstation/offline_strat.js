@@ -81,6 +81,25 @@ class offlineStrategy {
     }
 
     let recommendedStrategy = [];
-    
+    let allianceRankingThirds = Math.floor(allianceMemberRankingArray.length / 3);
+    let decidingFactorRank = allianceMemberRankingArray[(2 * allianceRankingThirds) - 1];
+
+    for (let i = 0; i < myOwnAlliance.length; i++) {
+      if (allianceMemberRankingArray[i] > decidingFactorRank) {
+        let teamNumberToPush = myOwnAlliance[i];
+        let arrayToPush = [];
+        arrayToPush.push(teamNumberToPush, "defense", "weak asset");
+        recommendedStrategy.push(arrayToPush);
+      }
+
+      else {
+        let teamArrToPush = myOwnAlliance[i];
+        let arrayToPush [];
+        arrayToPush.push(teamNumberToPush, "scorer", "asset");
+        recommendedStrategy.push(arrayToPush);
+      }
+    }
+
+    return recommendedStrategy;
   }
 }
