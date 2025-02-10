@@ -18,7 +18,7 @@ class offlineStrategy {
         return this.dataModel[0];
       case 1:
         let decryptedModel = sjcl.decrypt(this.sjclPassword, this.dataModel);
-        return decryptedModel[0];
+        return JSON.parse(decryptedModel)[0];
       default:
         return "0 for false 1 for true see docs";
     }
@@ -94,7 +94,7 @@ class offlineStrategy {
 
       else {
         let teamArrToPush = myOwnAlliance[i];
-        let arrayToPush [];
+        let arrayToPush = [];
         arrayToPush.push(teamNumberToPush, "scorer", "asset");
         recommendedStrategy.push(arrayToPush);
       }

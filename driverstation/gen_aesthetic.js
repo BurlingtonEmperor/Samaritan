@@ -47,3 +47,7 @@ async function actualType (textToType, targetElement, textSpeed) {
     }
   }, 500);
 }
+
+function scrollToBottom (myElement) {
+  myElement.scrollTo(0, myElement.scrollHeight);
+}
