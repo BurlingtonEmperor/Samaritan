@@ -106,14 +106,64 @@ manualInputLight.onclick = function () {
 manualInput.onsubmit = function (event) {
   event.preventDefault();
   consoleInput(commandInput.value);
+
+  let blueAllianceArr = [];
+  let redAllianceArr = [];
+  let modifiedInput = String(commandInput.value).toLowerCase();
+
+  if (String(commandInput.value).toLowerCase().substring(0, 7) == "blueall") {
+    modifiedInput = "blueall";
+    try {
+      let blunk = String(commandInput.value).slice(8);
+      blueAllianceArr = blunk.split(",");
+    }
+    
+    catch (error) {
+      consoleInput(error);
+    }
+  }
+
+  if (String(commandInput.value).toLowerCase().substring(0, 6) == "redall") {
+    modifiedInput = "redall";
+    try {
+      let blunk = String(commandInput.value).slice(7);
+      redAllianceArr = blunk.split(",");
+    }
+
+    catch (error) {
+      consoleInput(error);
+    }
+  }
   
-  switch (String(commandInput.value).toLowerCase()) {
+  switch (modifiedInput) {
     case "help":
       consoleInput("HELP - gets a list of commands");
       consoleInput("BLUEALL team1, team2, team3 - manually input blue alliance");
       consoleInput("REDALL team1, team2, team3 - manually input red alliance");
       consoleInput("RELEVANT - returns relevant teams on both red and blue alliances");
       consoleInput("STRATEGY - returns strategy for both red and blue alliances");
+      consoleInput("PASSWORD - enter a password");
+      break;
+    case "blueall":
+      consoleInput("Entered blue");
+      break;
+    case "redall":
+      consoleInput("Entered red");
+      break;
+    case "relevant":
+      if (blueAllianceArr.length < 1 || redAllianceArr.length < 1) {
+        consoleInput("null arrays");
+      }
+
+      else {
+        let newStrat = new offlineStrategy();
+      }
+      break;
+    case "password":
+      let newPass = prompt("Password: ");
+      actualPassword = newPass;
+      localStorage.setItem("samaritan-drivetrain-password", newPass);
+      consoleInput("Set password to " + newPass);
       break;
     default:
       consoleInput("No such command " + commandInput.value);
