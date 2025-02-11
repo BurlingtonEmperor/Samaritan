@@ -102,4 +102,22 @@ class offlineStrategy {
 
     return recommendedStrategy;
   }
+
+  checkIfTeamExists (teamNum, dataModel) {
+    let myTeamNum = parseInt(teamNum);
+    let doesExist = 0;
+
+    for (let i = 0; i < dataModel.length; i++) {
+      if (myTeamNum === dataModel[i]) {
+        doesExist = 1;
+      }
+    }
+
+    switch (doesExist) {
+      case 0:
+        return "no";
+      default:
+        return "exists";
+    }
+  }
 }

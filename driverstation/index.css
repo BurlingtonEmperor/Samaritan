@@ -8,3 +8,14 @@ p, a {
   margin: 0;
   font-size: 3vw;
 }
+
+#driverstation-console {
+  border: 1px solid red;
+  width: 90%;
+  height: 70vh;
+}
+
+#manual-input-light:hover {
+  cursor: pointer;
+  user-select: none;
+}
