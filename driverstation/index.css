@@ -13,9 +13,23 @@ p, a {
   border: 1px solid red;
   width: 90%;
   height: 70vh;
+  overflow-y: auto;
 }
 
 #manual-input-light:hover {
   cursor: pointer;
   user-select: none;
+}
+
+#manual-input {
+  display: none;
+}
+
+#command-input {
+  font-size: 3vw;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: red;
+  font-family: monospace;
 }

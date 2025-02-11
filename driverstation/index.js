@@ -84,15 +84,41 @@ setInterval(function () {
 const manualInputLight = document.getElementById("manual-input-light");
 let isManualInput = 0;
 
+const manualInput = document.getElementById("manual-input");
+const commandInput = document.getElementById("command-input");
+
 manualInputLight.onclick = function () {
   switch (isManualInput) {
     case 0:
       isManualInput = 1;
       manualInputLight.style.color = "blue";
+      consoleInput("type HELP for a list of commands");
+      manualInput.style.display = "block";
       break;
     case 1:
       isManualInput = 0;
       manualInputLight.style.color = "red";
+      manualInput.style.display = "none";
       break;
   }
+}
+
+manualInput.onsubmit = function (event) {
+  event.preventDefault();
+  consoleInput(commandInput.value);
+  
+  switch (String(commandInput.value).toLowerCase()) {
+    case "help":
+      consoleInput("HELP - gets a list of commands");
+      consoleInput("BLUEALL team1, team2, team3 - manually input blue alliance");
+      consoleInput("REDALL team1, team2, team3 - manually input red alliance");
+      consoleInput("RELEVANT - returns relevant teams on both red and blue alliances");
+      consoleInput("STRATEGY - returns strategy for both red and blue alliances");
+      break;
+    default:
+      consoleInput("No such command " + commandInput.value);
+      break;
+  }
+
+  commandInput.value = "";
 }
