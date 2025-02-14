@@ -103,12 +103,12 @@ manualInputLight.onclick = function () {
   }
 }
 
+let blueAllianceArr = [];
+let redAllianceArr = [];
+
 manualInput.onsubmit = function (event) {
   event.preventDefault();
   consoleInput(commandInput.value);
-
-  let blueAllianceArr = [];
-  let redAllianceArr = [];
   let modifiedInput = String(commandInput.value).toLowerCase();
 
   if (String(commandInput.value).toLowerCase().substring(0, 7) == "blueall") {
