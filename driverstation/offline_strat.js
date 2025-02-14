@@ -41,7 +41,7 @@ class offlineStrategy {
     for (let i = 0; i < myOwnAlliance.length; i++) {
       let myOwnAllianceMember = myOwnAlliance[i];
       for (let x = 0; x < modelToUse.length; x++) {
-        if (parseInt(myOwnAllianceMember) === modelToUse[x]) {
+        if (parseInt(myOwnAllianceMember) === parseInt(modelToUse[x])) {
           allianceMemberRankingArray.push(x);
         }
       }
