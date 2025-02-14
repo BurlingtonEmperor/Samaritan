@@ -143,6 +143,8 @@ manualInput.onsubmit = function (event) {
       consoleInput("RELEVANT - returns relevant teams on both red and blue alliances");
       consoleInput("STRATEGY - returns strategy for both red and blue alliances");
       consoleInput("PASSWORD - enter a password");
+      consoleInput("CLEAR - clear console");
+      consoleInput("RESET - reset");
       break;
     case "blueall":
       consoleInput("Entered blue");
@@ -178,6 +180,12 @@ manualInput.onsubmit = function (event) {
       actualPassword = newPass;
       localStorage.setItem("samaritan-drivetrain-password", newPass);
       consoleInput("Set password to " + newPass);
+      break;
+    case "clear":
+      driverstationConsole.innerHTML = "";
+      break;
+    case "reset":
+      window.location = "";
       break;
     default:
       consoleInput("No such command " + commandInput.value);
