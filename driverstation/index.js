@@ -52,7 +52,7 @@ const checkInterval = setInterval(function () {
       clearInterval(checkInterval);
 
       setTimeout(function () {
-        typeWriterEffect("I_WILL_PROTECT_YOU", typewriterPlace, 40);
+        typeWriterEffect("READY_STATUS", typewriterPlace, 40);
         finishedCheck = 1;
       }, 1000);
       break;
@@ -156,7 +156,21 @@ manualInput.onsubmit = function (event) {
       }
 
       else {
-        let newStrat = new offlineStrategy();
+        consoleInput("Most relevant team overall: " + malkavian.findMostRelevantTeam(1));
+        consoleInput("Most relevant team on blue alliance: " + malkavian.findAllianceBreadWinner(blueAllianceArr));
+        consoleInput("Most relevant team on red alliance: " + malkavian.findAllianceBreadWinner(redAllianceArr));
+      }
+      break;
+    case "strategy":
+      let strategyArrayBlue = malkavian.generatePushStrategies(blueAllianceArr, 1);
+      let strategyArrayRed = malkavian.generatePushStrategies(redAllianceArr, 1);
+
+      for (let i = 0; i < strategyArrayBlue.length; i++) {
+        consoleInput("Team " + strategyArrayBlue[i][0] + " is a " + strategyArrayBlue[i][1]);
+      }
+
+      for (let i = 0; i < strategyArrayRed.length; i++) {
+        consoleInput("Team " + strategyArrayRed[i][0] + " is a " + strategyArrayRed[i][1]);
       }
       break;
     case "password":
