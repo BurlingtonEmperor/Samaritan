@@ -54,6 +54,7 @@ class offlineStrategy {
       }
     }
     
+    console.log(modelToUse[greatestPos]);
     return modelToUse[greatestPos];
   }
 
