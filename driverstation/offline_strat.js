@@ -95,7 +95,7 @@ class offlineStrategy {
       else {
         let teamArrToPush = myOwnAlliance[i];
         let arrayToPush = [];
-        arrayToPush.push(teamNumberToPush, "scorer", "asset");
+        arrayToPush.push(teamArrToPush, "scorer", "asset");
         recommendedStrategy.push(arrayToPush);
       }
     }
