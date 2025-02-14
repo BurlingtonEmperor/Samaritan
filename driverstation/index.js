@@ -159,8 +159,8 @@ manualInput.onsubmit = function (event) {
 
       else {
         consoleInput("Most relevant team overall: " + malkavian.findMostRelevantTeam(1));
-        consoleInput("Most relevant team on blue alliance: " + malkavian.findAllianceBreadWinner(blueAllianceArr));
-        consoleInput("Most relevant team on red alliance: " + malkavian.findAllianceBreadWinner(redAllianceArr));
+        consoleInput("Most relevant team on blue alliance: " + malkavian.findAllianceBreadWinner(blueAllianceArr), 1);
+        consoleInput("Most relevant team on red alliance: " + malkavian.findAllianceBreadWinner(redAllianceArr), 1);
       }
       break;
     case "strategy":

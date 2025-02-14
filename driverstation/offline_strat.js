@@ -24,7 +24,7 @@ class offlineStrategy {
     }
   }
 
-  findAllianceBreadWinner (myOwnAlliance) {
+  findAllianceBreadWinner (myOwnAlliance, isEncrypted) {
     let modelToUse = [];
     switch (isEncrypted) {
       case 0:
