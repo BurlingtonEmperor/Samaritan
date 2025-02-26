@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Samaritan";
+  src: url("monoMMM_5.ttf");
+}
+
+body {
+  color: red;
+  font-family: "Samaritan";
+  background-color: black;
+}
+
+p, h3 {
+  margin: 0;
+}
+
+#console-aesthetic {
+  width: 90%;
+  height: 83vh;
+  overflow-y: auto;
+}
+
+#relevant-data {
+  display: none;
+}

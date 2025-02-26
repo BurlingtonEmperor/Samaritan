@@ -1,13 +1,7 @@
 let currentModel = "";
 
 function getLowestNum (numArray) {
-  let lowestNum = numArray[0];
-  for (let i = 0; i < numArray; i++) {
-    if (numArray[i] < lowestNum) {
-      lowestNum = numArray[i];
-    }
-  }
-
+  const lowestNum = Math.min.apply(Math, numArray);
   return lowestNum;
 }
 
@@ -24,6 +18,10 @@ class newSamaritanStrategy {
 
   getMostRelevant () {
     return currentModel[0];
+  }
+
+  getMatchTime () {
+    return this.matches.length * 120;
   }
 
   getAllianceThreats (blueArray, redArray) {
