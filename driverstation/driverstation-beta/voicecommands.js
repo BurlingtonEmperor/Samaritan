@@ -21,7 +21,7 @@ function beginVoiceControls () {
   artyom.initialize({
     lang: "en-GB",
     debug: true, 
-    continuous: true;
+    continuous: true,
     listen: true, 
     speed: 0.9, 
     mode: "normal" 
